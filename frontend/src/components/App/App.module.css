@@ -1,0 +1,14 @@
+.app {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  display: grid;
+  grid-template-rows: 80px auto 50px;
+
+
+}
+
+.content{
+  /* background-color: aqua; */
+}

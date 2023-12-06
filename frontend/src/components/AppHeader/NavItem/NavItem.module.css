@@ -1,0 +1,12 @@
+.nav_item {
+  display: flex;
+  flex-direction: row;
+  margin-right: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  /* color:  */
+}
+
+.nav_item:last-child {
+  margin-right: 0;
+}

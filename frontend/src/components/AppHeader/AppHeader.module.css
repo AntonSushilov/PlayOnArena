@@ -1,0 +1,43 @@
+.header{
+  height: 100%;
+  width: 100%;
+}
+.navbar{
+  padding: 0 500px 0 500px;
+  /* width: 1500px; */
+  /* width: 1500px; */
+  /* margin: 0 auto 0 auto; */
+}
+
+
+
+.container{
+  height: 100%;
+  width: 1500px;
+  margin: 0 auto 0 auto;
+  background-color: bisque;
+  display: flex;
+  flex-direction: row;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.section_left {
+  composes: section;
+  justify-content: start;
+}
+
+.section_right {
+  composes: section;
+  justify-content: end;
+}
+
+.section_center {
+  composes: section;
+  justify-content: center;
+}
+
