@@ -1,18 +1,73 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
+import { Form, Button, Checkbox, Input, Typography } from "antd";
 import styles from "./LoginPage.module.css";
+const { Title, Paragraph, Text } = Typography;
 
 const LoginPage = (): JSX.Element => {
-  const handleLoginUser = () => {
-    console.log("handleLoginUser")
-  }
+  const handleLoginUser = (values: any) => {
+    console.log("handleLoginUser", values);
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <form className={styles.login_form} onSubmit={handleLoginUser}>
-          <p className="text text_type_main-medium">Вход</p>
-        </form>
+        <Typography>
+          <Title>Вход</Title>
+        </Typography>
+        <Form
+          name="loginForm"
+          autoComplete="off"
+          labelCol={{ span: 9 }}
+          wrapperCol={{ span: 15 }}
+          style={{ width: 500 }}
+          onFinish={(values) => {
+            handleLoginUser(values);
+            console.log({ values });
+          }}
+          onFinishFailed={(error) => {
+            console.log({ error });
+          }}
+        >
+          <Form.Item
+            name="login"
+            label="Логин"
+            rules={[
+              {
+                required: true,
+                message: "Пожалуйста введите логин",
+              },
+              {
+                whitespace: true,
+                message: "Логин не может быть пустым",
+              },
+              {
+                min: 5,
+                message: "Логин должен быть больше 5 символов",
+              },
+            ]}
+            hasFeedback
+          >
+            <Input placeholder="Придумайте логин" />
+          </Form.Item>
+          <Form.Item
+            name="password"
+            label="Пароль"
+            rules={[
+              {
+                required: true,
+                message: "Пожалуйста введите пароль",
+              },
+            ]}
+            hasFeedback
+          >
+            <Input.Password placeholder="Придумайте пароль" />
+          </Form.Item>
+          <Form.Item wrapperCol={{ span: 24 }}>
+            <Button block type="primary" htmlType="submit">
+              Вход
+            </Button>
+          </Form.Item>
+        </Form>
         <div className={styles.links}>
           <p className="text text_type_main-default text_color_inactive">
             Вы - новый пользователь?{" "}

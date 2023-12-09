@@ -77,7 +77,7 @@ class Tournament(models.Model):
     tournament_system_id = models.ForeignKey(
         TournamentScheduleSystem, null=True, on_delete=models.SET_NULL, related_name='tournament_system')
     teams = models.ManyToManyField(Team, through='TeamsTournaments', related_name='teams')
-
+    
     def __str__(self):
         return self.title
 
