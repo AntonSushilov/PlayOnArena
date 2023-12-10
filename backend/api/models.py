@@ -93,7 +93,9 @@ class Match(models.Model):
     team_home_id = models.ForeignKey(Team, null=True, on_delete=models.SET_NULL, related_name='team_home_id')
     team_away_id = models.ForeignKey(Team, null=True, on_delete=models.SET_NULL, related_name='team_away_id')
     datetime = models.DateTimeField()
-    result = models.CharField(max_length=16)
-
+    point_home = 3
+    point_away = 2
     # def __str__(self):
     #     return "fff"
+
+
