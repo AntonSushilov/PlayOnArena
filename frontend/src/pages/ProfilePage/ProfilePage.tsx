@@ -3,8 +3,20 @@ import { Avatar, Typography, Button } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import styles from "./ProfilePage.module.css";
 import EditProfileForm from "../../components/EditProfileForm/EditProfileForm";
+import { useAppDispatch } from "../../hooks/UseAppDispatch";
+import { useAppSelector } from "../../hooks/UseAppSelector";
+import { shallowEqual } from "react-redux";
 const { Title, Paragraph, Text, Link } = Typography;
 const ProfilePage = (): JSX.Element => {
+  const dispatch = useAppDispatch()
+  // const navigate = useNavigate();
+  const { user }: any = useAppSelector(
+    (store) => ({
+      user: store.userReducer.user,
+    }),
+    // @ts-ignore
+    shallowEqual
+  );
   const [viewEditProfileForm, setViewEditProfileForm] = useState(false);
   const buttonClick = () => {
     console.log("tyt");
@@ -17,7 +29,7 @@ const ProfilePage = (): JSX.Element => {
           <Avatar size={256} icon={<UserOutlined />} />
           {!viewEditProfileForm && (
             <Typography>
-              <Title>Name SecondName</Title>
+              <Title>{user.first_name} {user.last_name}</Title>
 
               <Button type="primary" shape="round" onClick={buttonClick}>
                 Изменить профиль

@@ -1,12 +1,33 @@
 import { Link } from "react-router-dom";
 import { Form, Button, Checkbox, Input, Typography } from "antd";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
+
 import styles from "./RegisterPage.module.css";
+
+import { useAppDispatch } from "../../hooks/UseAppDispatch";
+import { useAppSelector } from "../../hooks/UseAppSelector";
+import { shallowEqual } from "react-redux";
+import { registerUser } from "../../services/User/action";
 const { Title, Paragraph, Text } = Typography;
 
 const RegisterPage = (): JSX.Element => {
-  const handleRegisterUser = (values: any) => {
-    console.log("handleRegisterUser", values);
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate();
+  const { user }: any = useAppSelector(
+    (store) => ({
+      user: store.userReducer.user,
+    }),
+    // @ts-ignore
+    shallowEqual
+  );
+  
+  const handleRegisterUser = async (values: any) => {
+    await dispatch(registerUser(values.login, values.password))
+    
+    navigate('/login');
   };
+
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>

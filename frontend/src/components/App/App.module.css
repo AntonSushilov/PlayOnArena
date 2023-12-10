@@ -1,8 +1,8 @@
 .app {
   height: 100vh;
   overflow-x: hidden;
-  overflow-y: hidden;
-
+  /* overflow-y: hidden; */
+  scrollbar-gutter: stable;
   display: grid;
   grid-template-rows: 80px auto 50px;
 

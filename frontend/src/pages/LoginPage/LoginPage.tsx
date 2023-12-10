@@ -1,11 +1,26 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Form, Button, Checkbox, Input, Typography } from "antd";
 import styles from "./LoginPage.module.css";
+import { useAppDispatch } from "../../hooks/UseAppDispatch";
+import { useAppSelector } from "../../hooks/UseAppSelector";
+import { loginUser } from "../../services/User/action";
+import { shallowEqual } from "react-redux";
 const { Title, Paragraph, Text } = Typography;
 
 const LoginPage = (): JSX.Element => {
-  const handleLoginUser = (values: any) => {
-    console.log("handleLoginUser", values);
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate();
+  const { user }: any = useAppSelector(
+    (store) => ({
+      user: store.userReducer.user,
+    }),
+    // @ts-ignore
+    shallowEqual
+  );
+  const handleLoginUser = async (values: any) => {
+    await dispatch(loginUser(values.login, values.password))
+
+    navigate('/profile');
   };
 
   return (
@@ -22,7 +37,6 @@ const LoginPage = (): JSX.Element => {
           style={{ width: 500 }}
           onFinish={(values) => {
             handleLoginUser(values);
-            console.log({ values });
           }}
           onFinishFailed={(error) => {
             console.log({ error });

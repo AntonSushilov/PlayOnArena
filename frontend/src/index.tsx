@@ -25,7 +25,9 @@ const store = configureStore({
   devTools: true,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
 });
-// export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
 // export type AppThunk<TReturn = void> = ActionCreator<
 //   ThunkAction<TReturn, Action, RootState>
 // >;
