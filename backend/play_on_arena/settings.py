@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'debug_toolbar',
     'djoser',
-    'api.apps.ApiConfig'
+    # 'api.apps.ApiConfig',
+    'tournaments.apps.TournamentsConfig',
+    'users.apps.UsersConfig'
 ]
 
 MIDDLEWARE = [
@@ -105,6 +107,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+AUTH_USER_MODEL = "users.User"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
