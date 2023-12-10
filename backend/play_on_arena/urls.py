@@ -28,6 +28,6 @@ urlpatterns = [
     # path('accounts/auth/', auth_views., name='auth'),
     # path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
     # path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('api/v1/', include('api.urls')),
+    # path('api/v1/', include('api.urls')),
 
 ]
