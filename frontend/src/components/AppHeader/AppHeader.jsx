@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { NavLink, useMatch } from "react-router-dom";
 import NavItem from "./NavItem/NavItem";
+import classNames from "classnames";
 
 import { useState } from "react";
 // import Navbar from "./Navbar";
@@ -17,29 +18,7 @@ export const AppHeader = () => {
   return (
     <header className={styles.header}>
       <nav className={styles.container}>
-        <section className={styles.section_left}>
-          <NavLink
-            to="/tournaments"
-            className={({ isActive }) =>
-              isActive ? "" : "text_color_inactive"
-            }
-          >
-            <NavItem>
-              <p className="text text_type_main-default ml-2">Турниры</p>
-            </NavItem>
-          </NavLink>
-          <NavLink
-            to="/teams"
-            className={({ isActive }) =>
-              isActive ? "" : "text_color_inactive"
-            }
-          >
-            <NavItem>
-              <p className="text text_type_main-default ml-2">Команды</p>
-            </NavItem>
-          </NavLink>
-        </section>
-        <section className={styles.section_center}>
+        <section className={styles.logo}>
           {/* <Logo /> */}
           <NavLink
             to="/"
@@ -49,19 +28,19 @@ export const AppHeader = () => {
           >
             PlayOnArena
           </NavLink>
-          
         </section>
-        <section className={styles.section_right}>
-          <NavLink
-            to="/profile"
-            className={({ isActive }) =>
-              isActive ? "" : "text_color_inactive"
-            }
-          >
-            <NavItem>
-              <p className="">Личный кабинет</p>
-            </NavItem>
-          </NavLink>
+        <section
+          className={classNames(styles.navbar, styles["topBotomBordersOut"])}
+        >
+          <NavItem route_to="/tournaments">Турниры</NavItem>
+          <NavItem route_to="/teams">Команды</NavItem>
+          <NavItem route_to="/register">Регистрация</NavItem>
+          <NavItem route_to="/login">Вход</NavItem>
+        </section>
+
+        <section>
+          <NavItem route_to="/profile">Личный кабинет</NavItem>
+          
         </section>
       </nav>
     </header>
