@@ -13,21 +13,40 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url
+from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include, re_path
-from django.contrib.auth import views as auth_views
+from django.urls import path, include
+from drf_yasg import openapi
+from drf_yasg.views import get_schema_view
+from rest_framework import permissions
+
+from play_on_arena import settings
 
 
 urlpatterns = [
-    path("__debug__/", include("debug_toolbar.urls")),
     path('admin/', admin.site.urls),
-    path('api/v1/auth/', include('djoser.urls')),  # Работа с пользователями
-    path('api/v1/auth/', include('djoser.urls.authtoken')),  # Работа с токенами
-    # re_path(r'^auth/', include('djoser.urls.authtoken')),
+    path('api/', include('api.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-    # path('accounts/auth/', auth_views., name='auth'),
-    # path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
-    # path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('api/v1/', include('api.urls')),
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += (path('__debug__/', include(debug_toolbar.urls)),)
 
+schema_view = get_schema_view(
+   openapi.Info(
+      title="PlayOnArena API",
+      default_version='v1',
+      description="Документация для проекта PlayOnArena",
+      # terms_of_service="URL страницы с пользовательским соглашением",
+      contact=openapi.Contact(email="admin@playonarena.ru"),
+      license=openapi.License(name="BSD License"),
+   ),
+   public=True,
+   permission_classes=[permissions.AllowAny],
+)
+
+urlpatterns += [
+   url(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0),
+       name='schema-redoc'),
 ]

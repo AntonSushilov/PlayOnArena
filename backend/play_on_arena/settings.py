@@ -37,11 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'drf_yasg',
     'rest_framework',
     'rest_framework.authtoken',
     'debug_toolbar',
     'djoser',
-    'api.apps.ApiConfig'
+    'api.apps.ApiConfig',
+    'tournaments.apps.TournamentsConfig',
+    'users.apps.UsersConfig'
 ]
 
 MIDDLEWARE = [
@@ -106,6 +109,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+AUTH_USER_MODEL = "users.User"
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -122,6 +127,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media/'
 
 STATIC_URL = '/static/'
 
