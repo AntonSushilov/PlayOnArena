@@ -4,8 +4,9 @@ from tournaments import models
 
 
 class TypeAdmin(admin.ModelAdmin):
-    list_display = ('title', 'description')
+    list_display = ('id', 'title', 'description')
     list_filter = ('title',)
+    readonly_fields = ('id',)
 
 
 @admin.register(models.SportType)
@@ -26,6 +27,7 @@ class ScheduleSystemTypeAdmin(TypeAdmin):
 @admin.register(models.Team)
 class TeamAdmin(admin.ModelAdmin):
     list_display = (
+        'id',
         'title',
         'description',
         'sport_type',
@@ -40,8 +42,9 @@ class TeamAdmin(admin.ModelAdmin):
 
 @admin.register(models.Participant)
 class ParticipantAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'photo', 'team', 'is_captain')
+    list_display = ('id', 'full_name', 'photo', 'team', 'is_captain')
     list_filter = ('full_name', 'team', 'is_captain')
+    readonly_fields = ('id',)
 
 
 @admin.register(models.Tournament)
@@ -62,12 +65,14 @@ class TournamentAdmin(admin.ModelAdmin):
         'tournament_type',
         'schedule_system_type'
     )
+    readonly_fields = ('id',)
     filter_horizontal = ('teams',)
 
 
 @admin.register(models.Match)
 class MatchAdmin(admin.ModelAdmin):
     list_display = (
+        'id',
         'owner',
         'guest',
         'datetime',
@@ -79,3 +84,4 @@ class MatchAdmin(admin.ModelAdmin):
         'guest',
         'datetime'
     )
+    readonly_fields = ('id',)
