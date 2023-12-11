@@ -11,7 +11,7 @@ User = get_user_model()
 
 class UserViewSet(DjoserViewSet):
     queryset = User.objects.all()
-    serializer_class = serializers.UserSerializer
+    serializer_class = serializers.CustomUserSerializer
     pagination_class = paginators.PageNumberPagination
 
 

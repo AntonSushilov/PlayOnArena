@@ -18,7 +18,7 @@ class Base64ImageField(serializers.ImageField):
         return super().to_internal_value(data)
 
 
-class UserSerializer(serializers.ModelSerializer):
+class CustomUserSerializer(serializers.ModelSerializer):
     photo = Base64ImageField()
 
     class Meta:
@@ -40,7 +40,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 class TeamSerializer(serializers.ModelSerializer):
     logo = Base64ImageField()
-    creator = UserSerializer(read_only=True)
+    creator = CustomUserSerializer(read_only=True)
 
     class Meta:
         model = models.Team
@@ -65,8 +65,8 @@ class ParticipantSerializer(serializers.ModelSerializer):
 
 
 class MatchSerializer(serializers.ModelSerializer):
-    owner = UserSerializer
-    guest = UserSerializer
+    owner = CustomUserSerializer
+    guest = CustomUserSerializer
 
     class Meta:
         model = models.Match
