@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useEffect } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Spin, Avatar, Card } from "antd";
+import { Spin, Avatar, Card, Typography } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 // import { loginUser } from "../../services/User/action";
 import styles from "./TeamsPage.module.css";
@@ -11,7 +11,7 @@ import { useAppSelector } from "../../hooks/UseAppSelector";
 // import { useRootSelector } from "../../hooks/UseRootSelector";
 // import { useAppDispatch } from "../../hooks/UseAppDispatch";
 const { Meta } = Card;
-
+const { Title, Paragraph, Text } = Typography;
 const TeamsPage = (): JSX.Element => {
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -38,39 +38,31 @@ const TeamsPage = (): JSX.Element => {
           tip="Загрузка"
           size="large"
         >
-          <div className={styles.content__teams}>
-            {teams &&
-              t.map((team: any, key: number) => (
-                <Card
-                  key={key}
-                  title={team.title}
-                  hoverable
-                  // style={{ width: 240 }}
-                  bordered={false}
-                >
-                  <div className={styles.card__content}>
-                    <Avatar size={128} icon={<UserOutlined />} />
-                    <div className={styles.content__participants}>
-                      {team.participants &&
-                        team.participants.map(
-                          (participant: any, key2: number) => {
-                            return (
-                              <>
-                                <Avatar
-                                  key={key2}
-                                  size={64}
-                                  icon={<UserOutlined />}
-                                />
-                                {participant.fio}
-                              </>
-                            );
-                          }
-                        )}
+          <Card style={{margin: "20px 0 20px 0"}}>
+            <div className={styles.content__teams}>
+              {teams &&
+                t.map((team: any, key: number) => (
+                  <Card
+                    key={key}
+                    // title={team.title}
+                    hoverable
+                    // style={{ width: 240 }}
+                    bordered={true}
+                  >
+                    <div className={styles.card__content}>
+                      <Avatar size={128} icon={<UserOutlined />} />
+                      <Typography>
+                        <Title level={3}>{team.title}</Title>
+                        <Paragraph style={{display: "flex", flexDirection: "row", gap: 12, justifyContent: "center"}}>
+                          <Text type="secondary">Москва</Text>
+                          <Text type="secondary">Россия</Text>
+                        </Paragraph>
+                      </Typography>
                     </div>
-                  </div>
-                </Card>
-              ))}
-          </div>
+                  </Card>
+                ))}
+            </div>
+          </Card>
         </Spin>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Form, Button, Checkbox, Input, Typography } from "antd";
+import { Form, Button, Card, Input, Typography } from "antd";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 import styles from "./RegisterPage.module.css";
@@ -31,9 +31,10 @@ const RegisterPage = (): JSX.Element => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <Typography>
+        <Card title={<Title style={{textAlign: "center"}}>Регистрация</Title>}>
+        {/* <Typography>
           <Title>Регистрация</Title>
-        </Typography>
+        </Typography> */}
         <Form
           name="loginForm"
           autoComplete="off"
@@ -110,9 +111,10 @@ const RegisterPage = (): JSX.Element => {
             </Button>
           </Form.Item>
         </Form>
+        </Card>
         <div className={styles.links}>
           <p className="">
-            Уже зарегистрированы? <Link to="/login">Войти</Link>
+            Уже зарегистрированы? <Link className={styles.link} to="/login">Войти</Link>
           </p>
         </div>
       </div>
