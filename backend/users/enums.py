@@ -2,5 +2,5 @@ from enum import IntEnum
 
 
 class UserEnums(IntEnum):
-    MIDDLE_NAME_MAX_LEN = 150
-    BIO_MAX_LEN = 2048
+    MIDDLE_NAME_MAX_LENGTH = 150
+    BIO_MAX_LENGTH = 2048

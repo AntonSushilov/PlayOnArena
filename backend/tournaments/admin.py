@@ -29,21 +29,19 @@ class TeamAdmin(admin.ModelAdmin):
         'title',
         'description',
         'sport_type',
-        'captain',
         'creator'
     )
     list_filter = (
         'title',
         'sport_type',
-        'captain',
         'creator'
     )
 
 
 @admin.register(models.Participant)
 class ParticipantAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'photo', 'team')
-    list_filter = ('full_name', 'team')
+    list_display = ('full_name', 'photo', 'team', 'is_captain')
+    list_filter = ('full_name', 'team', 'is_captain')
 
 
 @admin.register(models.Tournament)

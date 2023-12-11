@@ -7,7 +7,7 @@ from users import enums
 class User(AbstractUser):
     middle_name = models.CharField(
         'Отчество',
-        max_length=enums.UserEnums.MIDDLE_NAME_MAX_LEN,
+        max_length=enums.UserEnums.MIDDLE_NAME_MAX_LENGTH,
         null=True,
     )
     photo = models.ImageField(
@@ -16,7 +16,7 @@ class User(AbstractUser):
     )
     bio = models.TextField(
         'Биография',
-        max_length=enums.UserEnums.BIO_MAX_LEN,
+        max_length=enums.UserEnums.BIO_MAX_LENGTH,
     )
 
     class Meta:

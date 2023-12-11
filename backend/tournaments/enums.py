@@ -9,6 +9,8 @@ class TypeEnums(IntEnum):
 class TeamEnums(IntEnum):
     TITLE_MAX_LENGTH = 64
     DESCRIPTION_MAX_LENGTH = 2048
+    CITY_MAX_LENGTH = 64
+    BAN_DATES_MAX_LENGTH = 64
 
 
 class ParticipantEnums(IntEnum):

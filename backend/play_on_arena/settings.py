@@ -37,11 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'drf_yasg',
     'rest_framework',
     'rest_framework.authtoken',
     'debug_toolbar',
     'djoser',
-    # 'api.apps.ApiConfig',
+    'api.apps.ApiConfig',
     'tournaments.apps.TournamentsConfig',
     'users.apps.UsersConfig'
 ]

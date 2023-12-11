@@ -52,9 +52,21 @@ class Team(models.Model):
         'Название',
         max_length=enums.TeamEnums.TITLE_MAX_LENGTH
     )
+    logo = models.ImageField(
+        'Логотип',
+        upload_to='images/',
+    )
     description = models.TextField(
         'Описание',
         max_length=enums.TeamEnums.DESCRIPTION_MAX_LENGTH
+    )
+    city = models.CharField(
+        'Город',
+        max_length=enums.TeamEnums.CITY_MAX_LENGTH
+    )
+    ban_dates = models.CharField(
+        'Запрещенные дни',
+        max_length=enums.TeamEnums.BAN_DATES_MAX_LENGTH
     )
     sport_type = models.ForeignKey(
         SportType,
@@ -62,13 +74,6 @@ class Team(models.Model):
         related_name='teams',
         verbose_name='Вид спорта',
         null=True
-    )
-    captain = models.ForeignKey(
-        User,
-        models.SET_NULL,
-        related_name='leading_teams',
-        verbose_name='Капитан',
-        null=True,
     )
     creator = models.ForeignKey(
         User,
@@ -99,6 +104,10 @@ class Participant(models.Model):
         Team,
         models.CASCADE,
         related_name='participants'
+    )
+    is_captain = models.BooleanField(
+        'Капитан',
+        default=False
     )
 
     class Meta:
@@ -176,13 +185,17 @@ class Match(models.Model):
         verbose_name='Гости',
         null=True
     )
-    datetime = models.DateTimeField()
+    datetime = models.DateTimeField(null=True)
     owner_points = models.PositiveSmallIntegerField(
         'Очки хозяев',
         default=enums.MatchEnums.POINTS_DEFAULT_VALUE
     )
     guest_points = models.PositiveSmallIntegerField(
         'Очки гостей',
+        default=enums.MatchEnums.POINTS_DEFAULT_VALUE
+    )
+    round = models.PositiveSmallIntegerField(
+        'Раунд',
         default=enums.MatchEnums.POINTS_DEFAULT_VALUE
     )
 
