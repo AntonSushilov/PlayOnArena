@@ -6,7 +6,7 @@ from tournaments import enums
 User = get_user_model()
 
 
-class TypeModel:
+class TypeModel(models.Model):
     title = models.CharField(
         'Название',
         max_length=enums.TypeEnums.TITLE_MAX_LENGTH
@@ -16,8 +16,11 @@ class TypeModel:
         max_length=enums.TypeEnums.DESCRIPTION_MAX_LENGTH
     )
 
+    class Meta:
+        abstract = True
 
-class SportType(TypeModel, models.Model):
+
+class SportType(TypeModel):
     class Meta:
         verbose_name = 'Вид спорта'
         verbose_name_plural = 'Виды спорта'
@@ -27,7 +30,7 @@ class SportType(TypeModel, models.Model):
         return self.title
 
 
-class TournamentType(TypeModel, models.Model):
+class TournamentType(TypeModel):
     class Meta:
         verbose_name = 'Тип турнира'
         verbose_name_plural = 'Типы турнира'
@@ -37,7 +40,7 @@ class TournamentType(TypeModel, models.Model):
         return self.title
 
 
-class ScheduleSystemType(TypeModel, models.Model):
+class ScheduleSystemType(TypeModel):
     class Meta:
         verbose_name = 'Система расписания'
         verbose_name_plural = 'Системы расписания'
