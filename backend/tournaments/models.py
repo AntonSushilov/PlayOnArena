@@ -110,7 +110,7 @@ class Team(models.Model):
     )
     logo = models.ImageField(
         'Логотип',
-        upload_to='images/',
+        upload_to='images/teams/',
     )
     description = models.TextField(
         'Описание',
@@ -164,7 +164,7 @@ class Participant(models.Model):
     )
     photo = models.ImageField(
         'Фотография',
-        upload_to='images/',
+        upload_to='images/participants/',
     )
     team = models.ForeignKey(
         Team,
