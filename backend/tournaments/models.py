@@ -147,6 +147,7 @@ class Team(models.Model):
         related_name='created_teams',
         verbose_name='Создатель'
     )
+    rating = models.PositiveSmallIntegerField('Рейтинг')
 
     class Meta:
         verbose_name = 'Команда'
