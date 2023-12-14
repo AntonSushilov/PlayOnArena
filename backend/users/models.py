@@ -9,6 +9,7 @@ class User(AbstractUser):
         'Отчество',
         max_length=enums.UserEnums.MIDDLE_NAME_MAX_LENGTH,
         null=True,
+        blank=True,
     )
     photo = models.ImageField(
         'Фотография',
@@ -17,6 +18,8 @@ class User(AbstractUser):
     bio = models.TextField(
         'Биография',
         max_length=enums.UserEnums.BIO_MAX_LENGTH,
+        null=True,
+        blank=True,
     )
 
     class Meta:

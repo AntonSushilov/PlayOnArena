@@ -1,0 +1,602 @@
+[
+  {
+    "name_ru": "Москва",
+    "name_en": "Moscow",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Санкт-Петербург",
+    "name_en": "Peterburg",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Новосибирск",
+    "name_en": "Novosibirsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Екатеринбург",
+    "name_en": "Yekaterinburg",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Нижний Новгород",
+    "name_en": "Nizhny Novgorod",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Казань",
+    "name_en": "Kazan’",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Челябинск",
+    "name_en": "Chelyabinsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Омск",
+    "name_en": "Omsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Самара",
+    "name_en": "Samara",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Ростов-на-Дону",
+    "name_en": "Rostov-on-Don",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Уфа",
+    "name_en": "Ufa",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Красноярск",
+    "name_en": "Krasnoyarsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Воронеж",
+    "name_en": "Voronezh",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Волгоград",
+    "name_en": "Volgograd",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Пермь",
+    "name_en": "Perm",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Краснодар",
+    "name_en": "Krasnodar",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Саратов",
+    "name_en": "Saratov",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Тюмень",
+    "name_en": "Tyumen",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Тольятти",
+    "name_en": "Tolyatti",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Ижевск",
+    "name_en": "Izhevsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Барнаул",
+    "name_en": "Barnaul",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Ульяновск",
+    "name_en": "Ulyanovsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Иркутск",
+    "name_en": "Irkutsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Хабаровск",
+    "name_en": "Khabarovsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Ярославль",
+    "name_en": "Yaroslavl",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Владивосток",
+    "name_en": "Vladivostok",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Махачкала",
+    "name_en": "Makhachkala",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Томск",
+    "name_en": "Tomsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Оренбург",
+    "name_en": "Orenburg",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Кемерово",
+    "name_en": "Kemerovo",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Новокузнецк",
+    "name_en": "Novokuznetsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Рязань",
+    "name_en": "Ryazan",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Астрахань",
+    "name_en": "Astrakhan",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Пенза",
+    "name_en": "Penza",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Набережные Челны",
+    "name_en": "Naberezhnye Chelny",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Липецк",
+    "name_en": "Lipetsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Киров",
+    "name_en": "Kirov",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Чебоксары",
+    "name_en": "Cheboksary",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Тула",
+    "name_en": "Tula",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Калининград",
+    "name_en": "Kaliningrad",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Курск",
+    "name_en": "Kursk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Ставрополь",
+    "name_en": "Stavropol",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Брянск",
+    "name_en": "Bryansk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Тверь",
+    "name_en": "Tver'",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Магнитогорск",
+    "name_en": "Magnitogorsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Иваново",
+    "name_en": "Ivanovo",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Нижний Тагил",
+    "name_en": "Nizhny Tagil",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Улан-Удэ",
+    "name_en": "Ulan-Ude",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Владимир",
+    "name_en": "Vladimir",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Архангельск",
+    "name_en": "Arkhangelsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Чита",
+    "name_en": "Chita",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Белгород",
+    "name_en": "Belgorod",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Калуга",
+    "name_en": "Kaluga",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Смоленск",
+    "name_en": "Smolensk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Сочи",
+    "name_en": "Sochi",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Волжский",
+    "name_en": "Volzhsky",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Саранск",
+    "name_en": "Saransk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Череповец",
+    "name_en": "Cherepovets",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Вологда",
+    "name_en": "Vologda",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Курган",
+    "name_en": "Kurgan",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Владикавказ",
+    "name_en": "Vladikavkaz",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Орёл",
+    "name_en": "Oryol",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Сургут",
+    "name_en": "Surgut",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Грозный",
+    "name_en": "Grozny",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Мурманск",
+    "name_en": "Murmansk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Тамбов",
+    "name_en": "Tambov",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Петрозаводск",
+    "name_en": "Petrozavodsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Таганрог",
+    "name_en": "Taganrog",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Кострома",
+    "name_en": "Kostroma",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Комсомольск-на-Амуре",
+    "name_en": "Komsomolsk-on-Amur",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Йошкар-Ола",
+    "name_en": "Yoshkar-Ola",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Стерлитамак",
+    "name_en": "Sterlitamak",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Братск",
+    "name_en": "Bratsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Орск",
+    "name_en": "Orsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Сыктывкар",
+    "name_en": "Syktyvkar",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Нижневартовск",
+    "name_en": "Nizhnevartovsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Ангарск",
+    "name_en": "Angarsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Новороссийск",
+    "name_en": "Novorossiysk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Химки",
+    "name_en": "Khimki",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Нальчик",
+    "name_en": "Nal'chik",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Якутск",
+    "name_en": "Yakutsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Нижнекамск",
+    "name_en": "Nizhnekamsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Дзержинск",
+    "name_en": "Dzerzhinsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Старый Оскол",
+    "name_en": "Stary Oskol",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Благовещенск",
+    "name_en": "Blagoveshchensk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Великий Новгород",
+    "name_en": "Veliky Novgorod",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Шахты",
+    "name_en": "Shakhty",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Прокопьевск",
+    "name_en": "Prokopyevsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Рыбинск",
+    "name_en": "Rybinsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Зеленоград",
+    "name_en": "Zelenograd",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Бийск",
+    "name_en": "Biysk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Псков",
+    "name_en": "Pskov",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Балаково",
+    "name_en": "Balakovo",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Армавир",
+    "name_en": "Armavir",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Южно-Сахалинск",
+    "name_en": "Yuzhno-Sakhalinsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Энгельс",
+    "name_en": "Engel's",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Северодвинск",
+    "name_en": "Severodvinsk",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Златоуст",
+    "name_en": "Zlatoust",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Сызрань",
+    "name_en": "Syzran'",
+    "country_code": "RU",
+    "country": 9
+  },
+  {
+    "name_ru": "Абакан",
+    "name_en": "Abakan",
+    "country_code": "RU",
+    "country": 9
+  }
+]

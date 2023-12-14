@@ -6,6 +6,59 @@ from tournaments import enums
 User = get_user_model()
 
 
+class Country(models.Model):
+    name_ru = models.CharField(
+        'Название на русском',
+        max_length=enums.CountryEnums.NAME_MAX_LENGTH
+    )
+    name_en = models.TextField(
+        'Название на английском',
+        max_length=enums.CountryEnums.NAME_MAX_LENGTH
+    )
+    country_code = models.CharField(
+        'Код страны',
+        max_length=enums.CountryEnums.COUNTRY_CODE_MAX_LENGTH
+    )
+
+    class Meta:
+        verbose_name = 'Страна'
+        verbose_name_plural = 'Страны'
+        ordering = ('name_ru',)
+
+    def __str__(self):
+        return self.name_ru
+    
+
+class City(models.Model):
+    name_ru = models.CharField(
+        'Название на русском',
+        max_length=enums.CityEnums.NAME_MAX_LENGTH
+    )
+    name_en = models.TextField(
+        'Название на английском',
+        max_length=enums.CityEnums.NAME_MAX_LENGTH
+    )
+    country_code = models.CharField(
+        'Код страны',
+        max_length=enums.CityEnums.COUNTRY_CODE_MAX_LENGTH
+    )
+    country = models.ForeignKey(
+        Country,
+        models.SET_NULL,
+        related_name='cities',
+        verbose_name='Страна',
+        null=True
+    )
+
+    class Meta:
+        verbose_name = 'Страна'
+        verbose_name_plural = 'Страны'
+        ordering = ('name_ru',)
+
+    def __str__(self):
+        return self.name_ru
+
+
 class TypeModel(models.Model):
     title = models.CharField(
         'Название',
@@ -15,6 +68,9 @@ class TypeModel(models.Model):
         'Описание',
         max_length=enums.TypeEnums.DESCRIPTION_MAX_LENGTH
     )
+
+    class Meta:
+        abstract = True
 
 
 class SportType(TypeModel):
@@ -54,19 +110,31 @@ class Team(models.Model):
     )
     logo = models.ImageField(
         'Логотип',
-        upload_to='images/',
+        upload_to='images/teams/',
     )
     description = models.TextField(
         'Описание',
         max_length=enums.TeamEnums.DESCRIPTION_MAX_LENGTH
     )
-    city = models.CharField(
-        'Город',
-        max_length=enums.TeamEnums.CITY_MAX_LENGTH
+    country = models.ForeignKey(
+        Country,
+        models.SET_NULL,
+        related_name='teams',
+        verbose_name='Страна',
+        null=True
+    )
+    city = models.ForeignKey(
+        City,
+        models.SET_NULL,
+        related_name='teams',
+        verbose_name='Город',
+        null=True
     )
     ban_dates = models.CharField(
         'Запрещенные дни',
-        max_length=enums.TeamEnums.BAN_DATES_MAX_LENGTH
+        max_length=enums.TeamEnums.BAN_DATES_MAX_LENGTH,
+        null=True,
+        blank=True
     )
     sport_type = models.ForeignKey(
         SportType,
@@ -81,6 +149,7 @@ class Team(models.Model):
         related_name='created_teams',
         verbose_name='Создатель'
     )
+    rating = models.PositiveSmallIntegerField('Рейтинг')
 
     class Meta:
         verbose_name = 'Команда'
@@ -98,7 +167,7 @@ class Participant(models.Model):
     )
     photo = models.ImageField(
         'Фотография',
-        upload_to='images/',
+        upload_to='images/participants/',
     )
     team = models.ForeignKey(
         Team,
@@ -133,6 +202,20 @@ class Tournament(models.Model):
         models.CASCADE,
         related_name='tournaments',
         verbose_name='Организатор'
+    )
+    country = models.ForeignKey(
+        Country,
+        models.SET_NULL,
+        related_name='country',
+        verbose_name='Страна',
+        null=True
+    )
+    city = models.ForeignKey(
+        City,
+        models.SET_NULL,
+        related_name='city',
+        verbose_name='Город',
+        null=True
     )
     sport_type = models.ForeignKey(
         SportType,
