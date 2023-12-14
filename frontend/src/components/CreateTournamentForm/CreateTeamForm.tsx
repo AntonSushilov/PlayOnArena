@@ -6,7 +6,7 @@ import DatePanel from "react-multi-date-picker/plugins/date_panel";
 import gregorian_ru from "./gregorian_ru";
 
 import { beforeUpload, convertToBase64 } from "../../utils/uploadImage";
-const CreateTeamForm = ({ form }: any): JSX.Element => {
+const CreateTournamentForm = ({ form }: any): JSX.Element => {
   const [imageBase, setBaseImage] = useState<string | null>(null);
   // const [fileList, setFileList] = useState<[string | RcFile | Blob]>();
   const [country, setCountry] = useState<undefined | string>(undefined);
@@ -36,7 +36,7 @@ const CreateTeamForm = ({ form }: any): JSX.Element => {
   return (
     <Form
       form={form}
-      name="createTeam"
+      name="createToutnament"
       autoComplete="off"
       labelCol={{ span: 5 }}
       wrapperCol={{ span: 19 }}
@@ -44,40 +44,40 @@ const CreateTeamForm = ({ form }: any): JSX.Element => {
     >
       <Form.Item
         name="title"
-        label="Название команды"
+        label="Название турнира"
         rules={[
           {
             required: true,
-            message: "Пожалуйста введите название команды",
+            message: "Пожалуйста введите название турнира",
           },
           {
             whitespace: true,
-            message: "Название команды не может быть пустым",
+            message: "Название турнира не может быть пустым",
           },
           {
             min: 3,
-            message: "Название команды должно быть больше 3 символов",
+            message: "Название турнира должно быть больше 3 символов",
           },
         ]}
         hasFeedback
       >
-        <Input placeholder="Придумайте название команды" />
+        <Input placeholder="Придумайте название турнира" />
       </Form.Item>
 
       <Form.Item
         name="country"
-        label="Страна команды"
+        label="Страна"
         rules={[
           {
             required: true,
-            message: "Пожалуйста выберите страну",
+            message: "Пожалуйста выберите страну проведения турнира",
           },
         ]}
       >
         <Select
           allowClear
           showSearch
-          placeholder="Выберите страну команды"
+          placeholder="Выберите страну"
           optionFilterProp="children"
           onChange={onChangeCountry}
           onSearch={onSearchCountry}
@@ -99,16 +99,16 @@ const CreateTeamForm = ({ form }: any): JSX.Element => {
         />
       </Form.Item>
       {country && (
-        <Form.Item name="city" label="Город команды" rules={[
+        <Form.Item name="city" label="Город" rules={[
           {
             required: true,
-            message: "Пожалуйста выберите город",
+            message: "Пожалуйста выберите город проведения турнира",
           },
         ]}>
           <Select
             allowClear
             showSearch
-            placeholder="Выберите город команды"
+            placeholder="Выберите город"
             optionFilterProp="children"
             onChange={onChangeCity}
             onSearch={onSearchCity}
@@ -130,19 +130,19 @@ const CreateTeamForm = ({ form }: any): JSX.Element => {
           />
         </Form.Item>
       )}
-      <Form.Item name="description" label="Описание команды">
-        <Input.TextArea placeholder="Напишите описание команды" />
+      <Form.Item name="description" label="Описание турнира">
+        <Input.TextArea placeholder="Напишите описание турнира" />
       </Form.Item>
-      <Form.Item
+      {/* <Form.Item
         name="team_logo"
-        label="Логотип команды"
+        label="Логотип турнира"
         valuePropName="fileList"
         getValueFromEvent={(event) => {
           return event?.fileList;
         }}
       >
         <Upload
-          name="team_logo"
+          name="tournament_logo"
           listType="picture-card"
           maxCount={1}
           // className="avatar-uploader"
@@ -163,7 +163,7 @@ const CreateTeamForm = ({ form }: any): JSX.Element => {
             "Загрузить"
           )}
         </Upload>
-      </Form.Item>
+      </Form.Item> */}
       <Form.Item
         name="ban_dates"
         valuePropName="value"
@@ -187,4 +187,4 @@ const CreateTeamForm = ({ form }: any): JSX.Element => {
   );
 };
 
-export default CreateTeamForm;
+export default CreateTournamentForm;

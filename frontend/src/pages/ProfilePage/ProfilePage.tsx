@@ -7,6 +7,7 @@ import { useAppDispatch } from "../../hooks/UseAppDispatch";
 import { useAppSelector } from "../../hooks/UseAppSelector";
 import { shallowEqual } from "react-redux";
 import CreateTeamForm from "../../components/CreateTeamForm/CreateTeamForm";
+import CreateTournamentForm from "../../components/CreateTournamentForm/CreateTeamForm";
 const { Title, Paragraph, Text, Link } = Typography;
 const ProfilePage = (): JSX.Element => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,8 +20,21 @@ const ProfilePage = (): JSX.Element => {
     setTypeModal(type);
   };
   const handleOk = (values: any) => {
+    switch (typeModal) {
+      case "createTeam":
+        console.log("createTeam");
+        break;
+      case "createTournament":
+        console.log("createTournament");
+        break;
+      default:
+        break;
+    }
+    values.ban_dates = values?.ban_dates?.map((x: any) => {
+      return x.toDate().toLocaleDateString();
+    });
     console.log(values);
-    setIsModalOpen(false);
+    // setIsModalOpen(false);
   };
   const handleCancel = () => {
     form.resetFields();
@@ -58,9 +72,9 @@ const ProfilePage = (): JSX.Element => {
   const contentModal = () => {
     switch (typeModal) {
       case "createTeam":
-        return <CreateTeamForm form={form}/>;
+        return <CreateTeamForm form={form} />;
       case "createTournament":
-        return "Создание турнира";
+        return <CreateTournamentForm form={form} />;
       default:
         return "Заголовок";
     }
@@ -140,7 +154,7 @@ const ProfilePage = (): JSX.Element => {
         }}
         style={{ top: 120 }}
         width="fit-content"
-        destroyOnClose = {true}
+        destroyOnClose={true}
       >
         {contentModal()}
       </Modal>
