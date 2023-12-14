@@ -19,10 +19,11 @@ class Country(models.Model):
         'Код страны',
         max_length=enums.CountryEnums.COUNTRY_CODE_MAX_LENGTH
     )
+
     class Meta:
         verbose_name = 'Страна'
         verbose_name_plural = 'Страны'
-        ordering = ('Название',)
+        ordering = ('name_ru',)
 
     def __str__(self):
         return self.name_ru
@@ -44,17 +45,19 @@ class City(models.Model):
     country = models.ForeignKey(
         Country,
         models.SET_NULL,
-        related_name='сountry',
+        related_name='cities',
         verbose_name='Страна',
         null=True
     )
+
     class Meta:
         verbose_name = 'Страна'
         verbose_name_plural = 'Страны'
-        ordering = ('Название',)
+        ordering = ('name_ru',)
 
     def __str__(self):
         return self.name_ru
+
 
 class TypeModel(models.Model):
     title = models.CharField(
@@ -113,21 +116,17 @@ class Team(models.Model):
         'Описание',
         max_length=enums.TeamEnums.DESCRIPTION_MAX_LENGTH
     )
-    # city = models.CharField(
-    #     'Город',
-    #     max_length=enums.TeamEnums.CITY_MAX_LENGTH
-    # )
     country = models.ForeignKey(
         Country,
         models.SET_NULL,
-        related_name='country',
+        related_name='teams',
         verbose_name='Страна',
         null=True
     )
     city = models.ForeignKey(
         City,
         models.SET_NULL,
-        related_name='city',
+        related_name='teams',
         verbose_name='Город',
         null=True
     )
