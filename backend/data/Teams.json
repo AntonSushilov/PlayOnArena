@@ -2,89 +2,89 @@
   {
     "title": "Зенит Казань",
     "description": "Российский мужской волейбольный клуб из Казани. Основан в 2000 году; до 2004 года назывался «Динамо», с 2005 по июнь 2008 года - «Динамо-Таттрансгаз». Одиннадцатикратный чемпион России, одиннадцатикратный обладатель Кубка России, шестикратный победитель Лиги чемпионов, победитель клубного чемпионата мира 2017. Самый титулованный волейбольный клуб России.",
-    "logo": "media\/images\/team_photo\/1633157293KKa90.png",
+    "logo": "images\/team_photo\/1633157293KKa90.png",
     "ban_dates": null,
     "rating": 17,
-    "sport_type": 0,
-    "creator": 1,
-    "city": 5,
-    "country": 8
+    "sport_type": 1,
+    "creator": 2,
+    "city": 6,
+    "country": 9
   },
   {
     "title": "Локомотив Нововсибирск",
     "description": "Советский и российский мужской волейбольный клуб. Основан в 1977 году. До 1996 года выступал под названием «Север», в сезоне-1996\/97 - «Славяне-Север». Чемпион России, обладатель Кубка России, победитель Лиги чемпионов.",
-    "logo": "media\/images\/team_photo\/big_1691086489OLYB3.png",
+    "logo": "images\/team_photo\/big_1691086489OLYB3.png",
     "ban_dates": null,
     "rating": 66,
-    "sport_type": 0,
-    "creator": 2,
-    "city": 2,
-    "country": 8
+    "sport_type": 1,
+    "creator": 3,
+    "city": 3,
+    "country": 9
   },
   {
     "title": "Кузбасс Кемерово",
     "description": "\"Кузбасс\" -российская профессиональная мужская волейбольная команда, базирующаяся в Кемерово, выступающая в Суперлиге с 2010 года.",
-    "logo": "media\/images\/team_photo\/1568500022MzC3H.png",
+    "logo": "images\/team_photo\/1568500022MzC3H.png",
     "ban_dates": null,
     "rating": 251,
-    "sport_type": 0,
-    "creator": 3,
-    "city": 29,
-    "country": 8
+    "sport_type": 1,
+    "creator": 4,
+    "city": 30,
+    "country": 9
   },
   {
     "title": "Белогорье Бергород",
     "description": "«Белогорье» – один из самых титулованных клубов в истории российского волейбола. Восемь раз команда поднималась на высшую ступень пьедестала чемпионата России и восемь раз становилась обладателем Кубка России.",
-    "logo": "media\/images\/team_photo\/15375315395Thw7.png",
+    "logo": "images\/team_photo\/15375315395Thw7.png",
     "ban_dates": null,
     "rating": 18,
-    "sport_type": 0,
-    "creator": 4,
-    "city": 51,
-    "country": 8
+    "sport_type": 1,
+    "creator": 5,
+    "city": 52,
+    "country": 9
   },
   {
     "title": "Урал Уфа",
     "description": "«Ура́л» — российский мужской волейбольный клуб из города Уфы. Создан в 1992 году как «Нефтяник Башкирии». Базируется на стадионе «Динамо» и спортивном комплексе «Урал».",
-    "logo": "media\/images\/team_photo\/1617460506gcWK1.png",
+    "logo": "images\/team_photo\/1617460506gcWK1.png",
     "ban_dates": null,
     "rating": 149,
-    "sport_type": 0,
-    "creator": 5,
-    "city": 10,
-    "country": 8
+    "sport_type": 1,
+    "creator": 6,
+    "city": 11,
+    "country": 9
   },
   {
     "title": "ЦСКА Москва",
     "description": "ЦСКА (волейбольный клуб, Москва) — советский и российский волейбольный клуб из Москвы, существовавший с 1946 по 2009 год; воссоздан в 2021 году.",
-    "logo": "media\/images\/team_photo\/1668340166sy3oP.png",
+    "logo": "images\/team_photo\/1668340166sy3oP.png",
     "ban_dates": null,
     "rating": 2,
-    "sport_type": 0,
-    "creator": 6,
-    "city": 0,
-    "country": 8
+    "sport_type": 1,
+    "creator": 7,
+    "city": 1,
+    "country": 9
   },
   {
     "title": "Волжанин Кострома",
     "description": "Клуб «Волжанин» был основан в 2018 году на базе волейбольного центра «Волжанин», открытого в Костроме в октябре 2017 года. В первый же свой сезон команда завоевала серебряные медали в Первой лиге Чемпионата России и получила путевку в Высшую лигу \"Б\".",
-    "logo": "media\/images\/team_photo\/16088115740wVex.png",
+    "logo": "images\/team_photo\/16088115740wVex.png",
     "ban_dates": null,
     "rating": 3164,
-    "sport_type": 0,
-    "creator": 7,
-    "city": 68,
-    "country": 8
+    "sport_type": 1,
+    "creator": 8,
+    "city": 69,
+    "country": 9
   },
   {
     "title": "Газпром Ставрополь",
     "description": "«Газпром-Ставрополь» — российский мужской волейбольный клуб из Георгиевска. Основан в 1993 году.",
-    "logo": "media\/images\/team_photo\/1555882285vjq9i.png",
+    "logo": "images\/team_photo\/1555882285vjq9i.png",
     "ban_dates": null,
     "rating": 1661,
-    "sport_type": 0,
-    "creator": 8,
-    "city": 41,
-    "country": 8
+    "sport_type": 1,
+    "creator": 9,
+    "city": 42,
+    "country": 9
   }
 ]
