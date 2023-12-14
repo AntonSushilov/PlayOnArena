@@ -17,6 +17,7 @@ import TournamentsPage from "../../pages/TournamentsPage/TournamentsPage";
 import TeamsPage from "../../pages/TeamsPage/TeamsPage";
 import HomePage from "../../pages/HomePage/HomePage";
 import ProfilePage from "../../pages/ProfilePage/ProfilePage";
+import TeamDetailsPage from "../../pages/TeamDetailsPage/TeamDetailsPage";
 
 const App = (): JSX.Element => {
   let location = useLocation();
@@ -35,6 +36,7 @@ const App = (): JSX.Element => {
           <Route path="/" element={<HomePage />} />
           <Route path="/tournaments" element={<TournamentsPage />} />
           <Route path="/teams" element={<TeamsPage />} />
+          <Route path="/teams/:id" element={<TeamDetailsPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/profile" element={<ProfilePage />} />

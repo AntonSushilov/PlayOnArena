@@ -8,6 +8,7 @@ import styles from "./TeamsPage.module.css";
 import { useAppDispatch } from "../../hooks/UseAppDispatch";
 import { getTeams } from "../../services/Team/action";
 import { useAppSelector } from "../../hooks/UseAppSelector";
+import TeamCard from "../../components/TeamCard/TeamCard";
 // import { useRootSelector } from "../../hooks/UseRootSelector";
 // import { useAppDispatch } from "../../hooks/UseAppDispatch";
 const { Meta } = Card;
@@ -38,29 +39,10 @@ const TeamsPage = (): JSX.Element => {
           tip="Загрузка"
           size="large"
         >
-          <Card style={{margin: "20px 0 20px 0"}}>
+          <Card style={{ margin: "20px 0 20px 0" }}>
             <div className={styles.content__teams}>
               {teams &&
-                t.map((team: any, key: number) => (
-                  <Card
-                    key={key}
-                    // title={team.title}
-                    hoverable
-                    // style={{ width: 240 }}
-                    bordered={true}
-                  >
-                    <div className={styles.card__content}>
-                      <Avatar size={128} icon={<UserOutlined />} />
-                      <Typography>
-                        <Title level={3}>{team.title}</Title>
-                        <Paragraph style={{display: "flex", flexDirection: "row", gap: 12, justifyContent: "center"}}>
-                          <Text type="secondary">Москва</Text>
-                          <Text type="secondary">Россия</Text>
-                        </Paragraph>
-                      </Typography>
-                    </div>
-                  </Card>
-                ))}
+                t.map((team: any, key: number) => <TeamCard key={key} team={team}/>)}
             </div>
           </Card>
         </Spin>
