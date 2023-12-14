@@ -1,5 +1,13 @@
 from enum import IntEnum
 
+class CountryEnums(IntEnum):
+    NAME_MAX_LENGTH = 64
+    COUNTRY_CODE_MAX_LENGTH = 5
+
+class CityEnums(IntEnum):
+    NAME_MAX_LENGTH = 64
+    COUNTRY_CODE_MAX_LENGTH = 5
+
 
 class TypeEnums(IntEnum):
     TITLE_MAX_LENGTH = 64

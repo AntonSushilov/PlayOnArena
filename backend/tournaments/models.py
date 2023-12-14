@@ -6,6 +6,56 @@ from tournaments import enums
 User = get_user_model()
 
 
+class Country(models.Model):
+    name_ru = models.CharField(
+        'Название на русском',
+        max_length=enums.CountryEnums.NAME_MAX_LENGTH
+    )
+    name_en = models.TextField(
+        'Название на английском',
+        max_length=enums.CountryEnums.NAME_MAX_LENGTH
+    )
+    country_code = models.CharField(
+        'Код страны',
+        max_length=enums.CountryEnums.COUNTRY_CODE_MAX_LENGTH
+    )
+    class Meta:
+        verbose_name = 'Страна'
+        verbose_name_plural = 'Страны'
+        ordering = ('Название',)
+
+    def __str__(self):
+        return self.name_ru
+    
+
+class City(models.Model):
+    name_ru = models.CharField(
+        'Название на русском',
+        max_length=enums.CityEnums.NAME_MAX_LENGTH
+    )
+    name_en = models.TextField(
+        'Название на английском',
+        max_length=enums.CityEnums.NAME_MAX_LENGTH
+    )
+    country_code = models.CharField(
+        'Код страны',
+        max_length=enums.CityEnums.COUNTRY_CODE_MAX_LENGTH
+    )
+    country = models.ForeignKey(
+        Country,
+        models.SET_NULL,
+        related_name='сountry',
+        verbose_name='Страна',
+        null=True
+    )
+    class Meta:
+        verbose_name = 'Страна'
+        verbose_name_plural = 'Страны'
+        ordering = ('Название',)
+
+    def __str__(self):
+        return self.name_ru
+
 class TypeModel(models.Model):
     title = models.CharField(
         'Название',
@@ -63,9 +113,23 @@ class Team(models.Model):
         'Описание',
         max_length=enums.TeamEnums.DESCRIPTION_MAX_LENGTH
     )
-    city = models.CharField(
-        'Город',
-        max_length=enums.TeamEnums.CITY_MAX_LENGTH
+    # city = models.CharField(
+    #     'Город',
+    #     max_length=enums.TeamEnums.CITY_MAX_LENGTH
+    # )
+    country = models.ForeignKey(
+        Country,
+        models.SET_NULL,
+        related_name='country',
+        verbose_name='Страна',
+        null=True
+    )
+    city = models.ForeignKey(
+        City,
+        models.SET_NULL,
+        related_name='city',
+        verbose_name='Город',
+        null=True
     )
     ban_dates = models.CharField(
         'Запрещенные дни',
@@ -136,6 +200,20 @@ class Tournament(models.Model):
         models.CASCADE,
         related_name='tournaments',
         verbose_name='Организатор'
+    )
+    country = models.ForeignKey(
+        Country,
+        models.SET_NULL,
+        related_name='country',
+        verbose_name='Страна',
+        null=True
+    )
+    city = models.ForeignKey(
+        City,
+        models.SET_NULL,
+        related_name='city',
+        verbose_name='Город',
+        null=True
     )
     sport_type = models.ForeignKey(
         SportType,
