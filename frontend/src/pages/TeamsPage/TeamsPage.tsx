@@ -1,18 +1,12 @@
-import React, { ChangeEvent, FormEvent, useEffect } from "react";
-import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Spin, Avatar, Card, Typography } from "antd";
-import { UserOutlined } from "@ant-design/icons";
-// import { loginUser } from "../../services/User/action";
+import React, { useEffect } from "react";
+import { shallowEqual, useSelector } from "react-redux";
+import { Spin, Card, Typography } from "antd";
 import styles from "./TeamsPage.module.css";
 import { useAppDispatch } from "../../hooks/UseAppDispatch";
 import { getTeams } from "../../services/Team/action";
 import { useAppSelector } from "../../hooks/UseAppSelector";
 import TeamCard from "../../components/TeamCard/TeamCard";
-// import { useRootSelector } from "../../hooks/UseRootSelector";
-// import { useAppDispatch } from "../../hooks/UseAppDispatch";
-const { Meta } = Card;
-const { Title, Paragraph, Text } = Typography;
+
 const TeamsPage = (): JSX.Element => {
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -27,9 +21,7 @@ const TeamsPage = (): JSX.Element => {
     // @ts-ignore
     shallowEqual
   );
-  console.log("teams", teams);
-  console.log("teams", getTeamsRequest);
-  const t = [...teams, ...teams, ...teams, ...teams];
+  const t = [...teams, ...teams, ...teams, ...teams]
   return (
     <div className={styles.container}>
       <div className={styles.content}>

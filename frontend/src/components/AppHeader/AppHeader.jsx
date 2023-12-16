@@ -7,13 +7,28 @@ import { useState } from "react";
 // import Navbar from "./Navbar";
 
 import styles from "./AppHeader.module.css";
+import { useAppSelector } from "../../hooks/UseAppSelector";
+import { shallowEqual } from "react-redux";
+import { Button } from "antd";
+import { useAppDispatch } from "../../hooks/UseAppDispatch";
+import { logoutUser } from "../../services/User/action";
 
 export const AppHeader = () => {
   const isHome = !!useMatch({ path: "/" });
   const isFeed = !!useMatch("/feed");
   const isProfile = !!useMatch("/profile/*");
-
+  const dispatch = useAppDispatch()
   const [active, setActive] = React.useState("home");
+  const { user } = useAppSelector(
+    (store) => ({
+      user: store.userReducer.user,
+    }),
+    // @ts-ignore
+    shallowEqual
+  );
+  const handleLogout = () => {
+    dispatch(logoutUser())
+  }
 
   return (
     <header className={styles.header}>
@@ -34,13 +49,24 @@ export const AppHeader = () => {
         >
           <NavItem route_to="/tournaments">Турниры</NavItem>
           <NavItem route_to="/teams">Команды</NavItem>
-          <NavItem route_to="/register">Регистрация</NavItem>
-          <NavItem route_to="/login">Вход</NavItem>
         </section>
 
-        <section>
-          <NavItem route_to="/profile">Личный кабинет</NavItem>
-          
+        <section className={classNames(styles.navbar, styles["topBotomBordersOut"])}>
+          {user ? (
+            <>
+              <NavItem route_to="/profile">Личный кабинет</NavItem>
+              {/* <NavItem route_to="/logout">Выход</NavItem> */}
+              <Button type="primary" onClick={handleLogout}>
+                Выход
+              </Button>
+              
+            </>
+          ) : (
+            <>
+              <NavItem route_to="/register">Регистрация</NavItem>
+              <NavItem route_to="/login">Вход</NavItem>
+            </>
+          )}
         </section>
       </nav>
     </header>

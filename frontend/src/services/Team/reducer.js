@@ -4,7 +4,8 @@ import {
   GET_TEAMS_FAILED,
   GET_TEAM_REQUEST,
   GET_TEAM_SUCCESS,
-  GET_TEAM_FAILED
+  GET_TEAM_FAILED,
+  CLEAR_TEAM
 } from './type'
 
 export const initialState = {
@@ -13,7 +14,7 @@ export const initialState = {
   getTeamsSuccess: false,
   getTeamsFailed: false,
 
-  team: null,
+  detailTeam: null,
   getTeamRequest: false,
   getTeamSuccess: false,
   getTeamFailed: false
@@ -50,7 +51,7 @@ export const teamReducer = (state = initialState, action) => {
         ...state,
         getTeamSuccess: true,
         getTeamRequest: false,
-        team: action.team
+        detailTeam: action.detailTeam
       }
     case GET_TEAM_FAILED:
       return {
@@ -58,6 +59,11 @@ export const teamReducer = (state = initialState, action) => {
         getTeamRequest: false,
         getTeamFailed: true
       }
+      case CLEAR_TEAM:
+        return {
+          ...state,
+          detailTeam: null,
+        }
     default:
       return state
   }

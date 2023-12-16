@@ -17,21 +17,14 @@ const CreateTournamentForm = ({ form }: any): JSX.Element => {
   ) => (option?.label ?? "").toLowerCase().includes(input.toLowerCase());
   const onChangeCountry = (value: string) => {
     setCountry(value);
-    console.log(`selected ${value}`);
     form.setFieldsValue({ city: null });
   };
 
-  const onSearchCountry = (value: string) => {
-    console.log("search:", value);
-  };
+  const onSearchCountry = (value: string) => {};
 
-  const onChangeCity = (value: string) => {
-    console.log(`selected City ${value}`);
-  };
+  const onChangeCity = (value: string) => {};
 
-  const onSearchCity = (value: string) => {
-    console.log("search City:", value);
-  };
+  const onSearchCity = (value: string) => {};
 
   return (
     <Form
@@ -44,7 +37,7 @@ const CreateTournamentForm = ({ form }: any): JSX.Element => {
     >
       <Form.Item
         name="title"
-        label="Название турнира"
+        label="Название"
         rules={[
           {
             required: true,
@@ -63,7 +56,39 @@ const CreateTournamentForm = ({ form }: any): JSX.Element => {
       >
         <Input placeholder="Придумайте название турнира" />
       </Form.Item>
-
+      <Form.Item name="description" label="Описание">
+        <Input.TextArea placeholder="Напишите описание турнира" />
+      </Form.Item>
+      <Form.Item
+        name="team_logo"
+        label="Логотип турнира"
+        valuePropName="fileList"
+        getValueFromEvent={(event) => {
+          return event?.fileList;
+        }}
+      >
+        <Upload
+          name="photo"
+          listType="picture-card"
+          maxCount={1}
+          // className="avatar-uploader"
+          showUploadList={false}
+          customRequest={async (info) => {
+            const base64: any = await convertToBase64(info.file);
+            setBaseImage(base64);
+            // setFileList([info.file]);
+          }}
+          beforeUpload={beforeUpload}
+          // onChange={handleChange}
+          // fileList={fileList}
+        >
+          {imageBase ? (
+            <img style={{ width: "100%" }} src={`${imageBase}`} />
+          ) : (
+            "Загрузить"
+          )}
+        </Upload>
+      </Form.Item>
       <Form.Item
         name="country"
         label="Страна"
@@ -99,12 +124,16 @@ const CreateTournamentForm = ({ form }: any): JSX.Element => {
         />
       </Form.Item>
       {country && (
-        <Form.Item name="city" label="Город" rules={[
-          {
-            required: true,
-            message: "Пожалуйста выберите город проведения турнира",
-          },
-        ]}>
+        <Form.Item
+          name="city"
+          label="Город"
+          rules={[
+            {
+              required: true,
+              message: "Пожалуйста выберите город проведения турнира",
+            },
+          ]}
+        >
           <Select
             allowClear
             showSearch
@@ -130,41 +159,51 @@ const CreateTournamentForm = ({ form }: any): JSX.Element => {
           />
         </Form.Item>
       )}
-      <Form.Item name="description" label="Описание турнира">
-        <Input.TextArea placeholder="Напишите описание турнира" />
+      <Form.Item
+        name="start_date"
+        label="Дата начала"
+        rules={[
+          {
+            required: true,
+            message: "Пожалуйста выберите дату начала турнира",
+          },
+        ]}
+      >
+        <DatePicker
+          // value={selectDates}
+          // onChange={setSelectDates}
+          format="DD.MM.YYYY"
+          style={{ width: "100%" }}
+          containerStyle={{
+            width: "100%",
+          }}
+          placeholder="Выберите дату начала турнира"
+          locale={gregorian_ru}
+        />
+      </Form.Item>
+      <Form.Item
+        name="end_date"
+        label="Дата окончания"
+        rules={[
+          {
+            required: true,
+            message: "Пожалуйста выберите дату окончания турнира",
+          },
+        ]}
+      >
+        <DatePicker
+          // value={selectDates}
+          // onChange={setSelectDates}
+          format="DD.MM.YYYY"
+          style={{ width: "100%" }}
+          containerStyle={{
+            width: "100%",
+          }}
+          placeholder="Выберите дату окончания турнира"
+          locale={gregorian_ru}
+        />
       </Form.Item>
       {/* <Form.Item
-        name="team_logo"
-        label="Логотип турнира"
-        valuePropName="fileList"
-        getValueFromEvent={(event) => {
-          return event?.fileList;
-        }}
-      >
-        <Upload
-          name="tournament_logo"
-          listType="picture-card"
-          maxCount={1}
-          // className="avatar-uploader"
-          showUploadList={false}
-          customRequest={async (info) => {
-            console.log(info);
-            const base64: any = await convertToBase64(info.file);
-            setBaseImage(base64);
-            // setFileList([info.file]);
-          }}
-          beforeUpload={beforeUpload}
-          // onChange={handleChange}
-          // fileList={fileList}
-        >
-          {imageBase ? (
-            <img style={{ width: "100%" }} src={`${imageBase}`} />
-          ) : (
-            "Загрузить"
-          )}
-        </Upload>
-      </Form.Item> */}
-      <Form.Item
         name="ban_dates"
         valuePropName="value"
         label="Запрещенные даты"
@@ -182,7 +221,7 @@ const CreateTournamentForm = ({ form }: any): JSX.Element => {
           placeholder="Выберите запрещенные даты для игр"
           locale={gregorian_ru}
         />
-      </Form.Item>
+      </Form.Item> */}
     </Form>
   );
 };
