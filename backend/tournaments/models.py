@@ -275,6 +275,12 @@ class Match(models.Model):
         verbose_name='Гости',
         null=True
     )
+    tournament = models.ForeignKey(
+        Tournament,
+        models.CASCADE,
+        related_name='matches',
+        verbose_name='Турнир',
+    )
     datetime = models.DateTimeField(null=True)
     owner_points = models.PositiveSmallIntegerField(
         'Очки хозяев',
