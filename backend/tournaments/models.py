@@ -133,6 +133,8 @@ class Team(models.Model):
     ban_dates = models.CharField(
         'Запрещенные дни',
         max_length=enums.TeamEnums.BAN_DATES_MAX_LENGTH.value
+        null=True,
+        blank=True
     )
     sport_type = models.ForeignKey(
         SportType,
