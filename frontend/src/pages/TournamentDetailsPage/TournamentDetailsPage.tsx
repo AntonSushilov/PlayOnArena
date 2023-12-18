@@ -7,9 +7,13 @@ import { UserOutlined } from "@ant-design/icons";
 import styles from "./TournamentDetailsPage.module.css";
 import { useAppDispatch } from "../../hooks/UseAppDispatch";
 import { useAppSelector } from "../../hooks/UseAppSelector";
-import { clearDetailTeam, getDetailTeam } from "../../services/Team/action";
+import { clearDetailTeam, getDetailTeam, getTeams } from "../../services/Team/action";
 import EditTeamForm from "../../components/EditTeamForm/EditTeamForm";
 import { clearDetailTournament, getDetailTournament } from "../../services/Tournament/action";
+import TeamParticipants from "../../components/TeamParticipants/TeamParticipants";
+import TournamentTeams from "../../components/TournamentTeams/TournamentTeams";
+import TournamentGrid from "../../components/TournamentGrid/TournamentGrid";
+import TournamentMatches from "../../components/TournamentMatches/TournamentMatches";
 // import TeamParticipants from "../../components/TeamParticipants/TeamParticipants";
 
 // import { useRootSelector } from "../../hooks/UseRootSelector";
@@ -19,10 +23,12 @@ const { Title, Paragraph, Text } = Typography;
 const TournamentDetailsPage = (): JSX.Element => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
-  const { getTournamentRequest, detailTournament }: any = useAppSelector(
+  const { getTournamentRequest, detailTournament, teams, getTeamsRequest }: any = useAppSelector(
     (store) => ({
       getTournamentRequest: store.tournamentReducer.getTournamentRequest,
       detailTournament: store.tournamentReducer.detailTournament,
+      teams: store.teamReducer.teams,
+      getTeamsRequest: store.teamReducer.getTeamsRequest,
     }),
     // @ts-ignore
     shallowEqual
@@ -32,6 +38,8 @@ const TournamentDetailsPage = (): JSX.Element => {
   const end_date = new Date(detailTournament?.end_date).toLocaleDateString()
   useEffect(() => {
     dispatch(getDetailTournament(id));
+    dispatch(getTeams());
+
     return () => {
       dispatch(clearDetailTournament());
     };
@@ -58,9 +66,9 @@ const TournamentDetailsPage = (): JSX.Element => {
   ];
 
   const contentList: Record<string, React.ReactNode> = {
-    // teams: <TeamParticipants participants={[]} />,
-    tournament_grid: <p>В разработке</p>,
-    schedule: <p>В разработке</p>,
+    teams: <TournamentTeams teams={teams} />,
+    tournament_grid: <TournamentGrid teams={teams}/>,
+    schedule: <TournamentMatches />,
   };
 
   const onTabChange = (key: string) => {

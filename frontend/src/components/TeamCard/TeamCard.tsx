@@ -19,7 +19,7 @@ export const TeamCard = ({ team }: any) => {
       <Card
         // title={team.title}
         hoverable
-        // style={{ width: 240 }}
+        style={{ width: "100%", height: "100%" }}
         bordered={true}
       >
         <div className={styles.card__content}>

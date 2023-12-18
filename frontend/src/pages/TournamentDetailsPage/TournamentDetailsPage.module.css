@@ -7,6 +7,7 @@
   grid-template-columns: auto 1500px auto;
   grid-template-rows: 100%;
   grid-template-areas: ". content .";
+  scrollbar-gutter: stable;
 }
 
 .content {
