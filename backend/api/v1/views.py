@@ -27,11 +27,27 @@ class TeamViewSet(ModelViewSet):
         serializer = serializers.TeamListSerializer(
             models.Team.objects.all(), many=True)
         return Response(serializer.data)
+    
+    def retrieve(self, request, pk=None):
+        queryset = models.Team.objects.all()
+        team = get_object_or_404(queryset, pk=pk)
+        serializer = serializers.TeamSerializer(team)
+        return Response(serializer.data)
 
 
 class TournamentViewSet(ModelViewSet):
     queryset = models.Tournament.objects.all()
     serializer_class = serializers.TournamentSerializer
+    def list(self, request, **kwargs):
+        serializer = serializers.TournamentListSerializer(
+            models.Tournament.objects.all(), many=True)
+        return Response(serializer.data)
+    
+    def retrieve(self, request, pk=None):
+        queryset = models.Tournament.objects.all()
+        tournament = get_object_or_404(queryset, pk=pk)
+        serializer = serializers.TournamentSerializer(tournament)
+        return Response(serializer.data)
 
 
 class ParticipantViewSet(ModelViewSet):

@@ -197,6 +197,13 @@ class Tournament(models.Model):
         'Описание',
         max_length=enums.TournamentEnums.DESCRIPTION_MAX_LENGTH.value
     )
+    logo = models.ImageField(
+        'Логотип',
+        upload_to='images/tournaments/',
+    )
+    count_teams = models.PositiveSmallIntegerField(
+        'Количество команд',
+    )
     organizer = models.ForeignKey(
         User,
         models.CASCADE,
@@ -281,7 +288,7 @@ class Match(models.Model):
         'Раунд',
         default=enums.MatchEnums.POINTS_DEFAULT_VALUE.value
     )
-
+    
     class Meta:
         verbose_name = 'Матч'
         verbose_name_plural = 'Матчи'
