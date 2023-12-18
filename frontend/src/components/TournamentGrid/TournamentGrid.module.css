@@ -1,0 +1,11 @@
+.section__teams{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  grid-template-rows: 300px;
+  /* flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 25px; */
+}

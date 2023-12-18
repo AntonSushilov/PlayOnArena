@@ -13,16 +13,22 @@ const { Title, Paragraph, Text } = Typography;
 
 export const TeamCard = ({ team }: any) => {
   const location = useLocation();
+  console.log(team);
   return (
     <Link to={`/teams/${team.id}`} state={{ background: location }}>
       <Card
         // title={team.title}
         hoverable
-        // style={{ width: 240 }}
+        style={{ width: "100%", height: "100%" }}
         bordered={true}
       >
         <div className={styles.card__content}>
-          <Avatar size={128} icon={<UserOutlined />} />
+          <Avatar
+            size={128}
+            shape="square"
+            style={{ backgroundColor: "white", verticalAlign: "middle" }}
+            icon={<img src={team.logo} style={{ objectFit: "contain"}}></img>}
+          />
           <Typography>
             <Title level={3}>{team.title}</Title>
             <Paragraph

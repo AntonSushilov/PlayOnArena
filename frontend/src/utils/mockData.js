@@ -5,7 +5,7 @@ export const user = {
     email: "address@mail.ru"
 }
 
-export const token = "token123"
+// export const token = "token123"
 
 
 export const teams = [

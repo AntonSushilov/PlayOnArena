@@ -7,7 +7,7 @@ import { useAppDispatch } from "../../hooks/UseAppDispatch";
 import { useAppSelector } from "../../hooks/UseAppSelector";
 import { shallowEqual } from "react-redux";
 import CreateTeamForm from "../../components/CreateTeamForm/CreateTeamForm";
-import CreateTournamentForm from "../../components/CreateTournamentForm/CreateTeamForm";
+import CreateTournamentForm from "../../components/CreateTournamentForm/CreateTournamentForm";
 const { Title, Paragraph, Text, Link } = Typography;
 const ProfilePage = (): JSX.Element => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,10 +30,12 @@ const ProfilePage = (): JSX.Element => {
       default:
         break;
     }
-    values.ban_dates = values?.ban_dates?.map((x: any) => {
-      return x.toDate().toLocaleDateString();
-    });
-    console.log(values);
+    // values.ban_dates = values?.ban_dates?.map((x: any) => {
+    //   return x.toDate().toLocaleDateString();
+    // });
+    values.start_date = values?.start_date.toDate().toLocaleDateString();
+    values.end_date = values?.end_date.toDate().toLocaleDateString();
+
     // setIsModalOpen(false);
   };
   const handleCancel = () => {
@@ -41,8 +43,17 @@ const ProfilePage = (): JSX.Element => {
     setIsModalOpen(false);
     setTypeModal(null);
   };
+  const { user }: any =
+  useAppSelector(
+    (store) => ({
+      user: store.userReducer.user,
+    }),
+    // @ts-ignore
+    shallowEqual
+  );
 
   const dispatch = useAppDispatch();
+  console.log(user)
   // const navigate = useNavigate();
   // const { user }: any = useAppSelector(
   //   (store) => ({
@@ -53,7 +64,6 @@ const ProfilePage = (): JSX.Element => {
   // );
   const [viewEditProfileForm, setViewEditProfileForm] = useState(false);
   const buttonClick = () => {
-    console.log("tyt");
     setViewEditProfileForm(!viewEditProfileForm);
   };
   const [form] = Form.useForm();
@@ -90,7 +100,8 @@ const ProfilePage = (): JSX.Element => {
                 <Avatar size={256} icon={<UserOutlined />} />
                 {!viewEditProfileForm ? (
                   <>
-                    <Title level={2}>Иванов Иван Иванович</Title>
+                    <Title level={2}>{user.username}</Title>
+                    <Text>{user.email ? user.email : "user.email"}</Text>
                     <Paragraph>
                       Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                       Sequi nulla dolorum, nesciunt excepturi alias

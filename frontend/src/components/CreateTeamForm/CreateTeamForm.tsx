@@ -17,20 +17,16 @@ const CreateTeamForm = ({ form }: any): JSX.Element => {
   ) => (option?.label ?? "").toLowerCase().includes(input.toLowerCase());
   const onChangeCountry = (value: string) => {
     setCountry(value);
-    console.log(`selected ${value}`);
     form.setFieldsValue({ city: null });
   };
 
   const onSearchCountry = (value: string) => {
-    console.log("search:", value);
   };
 
   const onChangeCity = (value: string) => {
-    console.log(`selected City ${value}`);
   };
 
   const onSearchCity = (value: string) => {
-    console.log("search City:", value);
   };
 
   return (
@@ -148,7 +144,6 @@ const CreateTeamForm = ({ form }: any): JSX.Element => {
           // className="avatar-uploader"
           showUploadList={false}
           customRequest={async (info) => {
-            console.log(info);
             const base64: any = await convertToBase64(info.file);
             setBaseImage(base64);
             // setFileList([info.file]);
