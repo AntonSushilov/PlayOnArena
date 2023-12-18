@@ -1,6 +1,8 @@
 from django.contrib.auth import get_user_model
+from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
 from djoser.views import UserViewSet as DjoserViewSet
+from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 
 from api.v1 import paginators, permissions, serializers
@@ -20,6 +22,11 @@ class TeamViewSet(ModelViewSet):
     serializer_class = serializers.TeamSerializer
     pagination_class = paginators.PageNumberPagination
     filter_backends = (DjangoFilterBackend,)
+
+    def list(self, request, **kwargs):
+        serializer = serializers.TeamListSerializer(
+            models.Team.objects.all(), many=True)
+        return Response(serializer.data)
 
 
 class TournamentViewSet(ModelViewSet):

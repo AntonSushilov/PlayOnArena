@@ -47,29 +47,15 @@ class TeamSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class TournamentSerializer(serializers.ModelSerializer):
-    teams = TeamSerializer(many=True)
-
+class CountrySerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.Tournament
+        model = models.Country
         fields = '__all__'
 
 
-class ParticipantSerializer(serializers.ModelSerializer):
-    photo = Base64ImageField()
-    team = TeamSerializer
-
+class CitySerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.Participant
-        fields = '__all__'
-
-
-class MatchSerializer(serializers.ModelSerializer):
-    owner = CustomUserSerializer
-    guest = CustomUserSerializer
-
-    class Meta:
-        model = models.Match
+        model = models.City
         fields = '__all__'
 
 
@@ -88,5 +74,79 @@ class TournamentTypeSerializer(serializers.ModelSerializer):
 class ScheduleSystemTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.ScheduleSystemType
+        fields = '__all__'
+
+
+class ShortCountrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Country
+        fields = ('id', 'name_ru')
+
+
+class ShortCitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.City
+        fields = ('id', 'name_ru')
+
+
+class ShortSportTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Country
+        fields = ('id', 'title')
+
+
+class TeamListSerializer(serializers.ModelSerializer):
+    logo = Base64ImageField()
+    country = ShortCountrySerializer(read_only=True)
+    city = ShortCitySerializer(read_only=True)
+    sport_type = SportTypeSerializer(read_only=True)
+
+    class Meta:
+        model = models.Team
+        fields = (
+            'id',
+            'title',
+            'logo',
+            'country',
+            'city',
+            'sport_type',
+            'rating'
+        )
+
+
+class TournamentSerializer(serializers.ModelSerializer):
+    teams = TeamSerializer(many=True)
+
+    class Meta:
+        model = models.Tournament
+        fields = '__all__'
+
+
+class TournamentListSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Tournament
+        fields = (
+            'id',
+            'title',
+            'logo',
+        )
+
+
+class ParticipantSerializer(serializers.ModelSerializer):
+    photo = Base64ImageField()
+    team = TeamSerializer
+
+    class Meta:
+        model = models.Participant
+        fields = '__all__'
+
+
+class MatchSerializer(serializers.ModelSerializer):
+    owner = CustomUserSerializer
+    guest = CustomUserSerializer
+
+    class Meta:
+        model = models.Match
         fields = '__all__'
 
