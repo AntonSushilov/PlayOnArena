@@ -197,8 +197,7 @@ class Tournament(models.Model):
         'Описание',
         max_length=enums.TournamentEnums.DESCRIPTION_MAX_LENGTH.value
     )
-
-    photo = models.ImageField(
+    logo = models.ImageField(
         'Фотография',
         upload_to='images/tournaments/',
         blank=True,
@@ -253,12 +252,6 @@ class Tournament(models.Model):
         Team,
         related_name='tournaments',
         verbose_name='Команды'
-    )
-    photo = models.ImageField(
-        'Фотография',
-        upload_to='images/tournaments/',
-        blank=True,
-        null=True
     )
     start_date = models.DateTimeField(null=True)
     end_date = models.DateTimeField(null=True)

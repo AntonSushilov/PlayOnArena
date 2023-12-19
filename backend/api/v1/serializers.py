@@ -142,7 +142,9 @@ class TournamentListSerializer(serializers.ModelSerializer):
             'tournament_type',
             'schedule_system_type',
             'count_teams',
-            'teams_amount'
+            'teams_amount',
+            'start_date',
+            'end_date'
         )
 
     def get_teams_amount(self, tournament):
