@@ -15,6 +15,7 @@ router.register('sport_type', views.SportTypeViewSet, 'sport_type')
 
 urlpatterns = (
     path('', include(router.urls)),
+    path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.authtoken')),
     path('round_robin/', views.RoundRobin.as_view()),
     path('create_tournament/', views.CreateTournament.as_view())
