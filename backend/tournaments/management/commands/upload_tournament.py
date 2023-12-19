@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
 from tqdm import tqdm
 
-from tournaments.models import Tournament, Team, Country, City, SportType, ScheduleSystemType, TournamentType
+from tournaments.models import Tournament, Country, City, SportType, ScheduleSystemType, TournamentType
 
 User = get_user_model()
 

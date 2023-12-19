@@ -132,7 +132,7 @@ class Team(models.Model):
     )
     ban_dates = models.CharField(
         'Запрещенные дни',
-        max_length=enums.TeamEnums.BAN_DATES_MAX_LENGTH.value
+        max_length=enums.TeamEnums.BAN_DATES_MAX_LENGTH.value,
         null=True,
         blank=True
     )
@@ -197,7 +197,7 @@ class Tournament(models.Model):
         'Описание',
         max_length=enums.TournamentEnums.DESCRIPTION_MAX_LENGTH.value
     )
-    # TYT
+
     photo = models.ImageField(
         'Фотография',
         upload_to='images/tournaments/',
@@ -208,7 +208,6 @@ class Tournament(models.Model):
     end_date = models.DateTimeField(null=True)
     count_teams = models.PositiveSmallIntegerField(
         'Количество команд', null=True)
-    # ENDTYT
     organizer = models.ForeignKey(
         User,
         models.CASCADE,
@@ -255,6 +254,16 @@ class Tournament(models.Model):
         related_name='tournaments',
         verbose_name='Команды'
     )
+    photo = models.ImageField(
+        'Фотография',
+        upload_to='images/tournaments/',
+        blank=True,
+        null=True
+    )
+    start_date = models.DateTimeField(null=True)
+    end_date = models.DateTimeField(null=True)
+    count_teams = models.PositiveSmallIntegerField(
+        'Количество команд', null=True)
 
     class Meta:
         verbose_name = 'Турнир'
@@ -280,6 +289,12 @@ class Match(models.Model):
         verbose_name='Гости',
         null=True
     )
+    tournament = models.ForeignKey(
+        Tournament,
+        models.CASCADE,
+        related_name='matches',
+        verbose_name='Турнир',
+    )
     datetime = models.DateTimeField(null=True)
     owner_points = models.PositiveSmallIntegerField(
         'Очки хозяев',
@@ -293,7 +308,7 @@ class Match(models.Model):
         'Раунд',
         default=enums.MatchEnums.POINTS_DEFAULT_VALUE.value
     )
-
+    
     class Meta:
         verbose_name = 'Матч'
         verbose_name_plural = 'Матчи'
