@@ -13,7 +13,7 @@
   grid-area: navmenu;
   /* background-color: rgb(69, 126, 190); */
   display: grid;
-  grid-template-columns: 250px auto 250px;
+  grid-template-columns: 350px auto 350px;
 }
 
 .logo {
@@ -25,6 +25,7 @@
 
 .navbar {
   height: 100%;
+  align-items: center;
   text-align: center;
   display: flex;
   flex-direction: row;

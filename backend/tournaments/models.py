@@ -27,7 +27,7 @@ class Country(models.Model):
 
     def __str__(self):
         return self.name_ru
-    
+
 
 class City(models.Model):
     name_ru = models.CharField(
@@ -197,13 +197,17 @@ class Tournament(models.Model):
         'Описание',
         max_length=enums.TournamentEnums.DESCRIPTION_MAX_LENGTH.value
     )
-    logo = models.ImageField(
-        'Логотип',
+
+    photo = models.ImageField(
+        'Фотография',
         upload_to='images/tournaments/',
+        blank=True,
+        null=True
     )
+    start_date = models.DateTimeField(null=True)
+    end_date = models.DateTimeField(null=True)
     count_teams = models.PositiveSmallIntegerField(
-        'Количество команд',
-    )
+        'Количество команд', null=True)
     organizer = models.ForeignKey(
         User,
         models.CASCADE,

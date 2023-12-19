@@ -1,14 +1,19 @@
 .app {
   height: 100vh;
   overflow-x: hidden;
-  overflow-y: hidden;
-
+  /* scroll-padding-top: 25px; */
+  scroll-padding-top: 100px;
+  /* overflow-y: scroll; */
+  /* scrollbar-gutter: stable; */
   display: grid;
-  grid-template-rows: 80px auto 50px;
+  grid-template-rows: 80px 1fr 50px;
+  grid-template-areas: "header" "main" "footer";
 
-
+  background-color: #f0f8ff;
 }
 
 .content{
-  /* background-color: aqua; */
+  grid-area: main;
+  overflow-y: auto;
+  height: 100%;
 }
