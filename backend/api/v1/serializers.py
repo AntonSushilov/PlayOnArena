@@ -18,9 +18,6 @@ class Base64ImageField(serializers.ImageField):
         return super().to_internal_value(data)
 
 
-
-
-
 class ShortUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -150,7 +147,8 @@ class TournamentListSerializer(serializers.ModelSerializer):
 
     def get_teams_amount(self, tournament):
         return tournament.teams.count()
-    
+
+
 class CustomUserSerializer(serializers.ModelSerializer):
     photo = Base64ImageField()
     created_teams = TeamListSerializer(many=True)
@@ -172,10 +170,9 @@ class CustomUserSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
-    
+
     # def get_teams_tournaments(self, user):
     #     return models.Tournament.objects.filter(teams=models.Team.objects.filter(creator=user))
-
 
 
 class TournamentSerializer(serializers.ModelSerializer):
@@ -192,8 +189,6 @@ class TournamentSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-
-
 class ParticipantSerializer(serializers.ModelSerializer):
     photo = Base64ImageField()
     team = TeamSerializer
@@ -206,6 +201,7 @@ class ParticipantSerializer(serializers.ModelSerializer):
 class MatchSerializer(serializers.ModelSerializer):
     owner = CustomUserSerializer
     guest = CustomUserSerializer
+    tournament = TournamentSerializer
 
     class Meta:
         model = models.Match

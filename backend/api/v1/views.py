@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
 from djoser.views import UserViewSet as DjoserViewSet
 from rest_framework.response import Response
@@ -143,6 +144,7 @@ class RoundRobin(APIView):
 
 class CreateTournament(generics.CreateAPIView):
     def post(self, request, **kwargs):
+        print(request.data)
         serializer = serializers.MatchSerializer(data=request.data, many=True)
         if serializer.is_valid():
             serializer.save()
