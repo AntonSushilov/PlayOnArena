@@ -5,7 +5,8 @@ import {
   GET_TOURNAMENT_REQUEST,
   GET_TOURNAMENT_SUCCESS,
   GET_TOURNAMENT_FAILED,
-  CLEAR_TOURNAMENT
+  CLEAR_TOURNAMENT,
+  CREATE_TOURNAMENT_GRID
 } from './type'
 
 export const initialState = {
@@ -15,6 +16,7 @@ export const initialState = {
   getTournamentsFailed: false,
 
   detailTournament: null,
+  tournamentGrid: null,
   getTournamentRequest: false,
   getTournamentSuccess: false,
   getTournamentFailed: false
@@ -59,11 +61,17 @@ export const tournamentReducer = (state = initialState, action) => {
         getTournamentRequest: false,
         getTournamentFailed: true
       }
-      case CLEAR_TOURNAMENT:
-        return {
-          ...state,
-          detailTournament: null,
-        }
+    case CLEAR_TOURNAMENT:
+      return {
+        ...state,
+        detailTournament: null,
+        tournamentGrid: null
+      }
+    case CREATE_TOURNAMENT_GRID:
+      return {
+        ...state,
+        tournamentGrid: action.tournamentGrid,
+      }
     default:
       return state
   }

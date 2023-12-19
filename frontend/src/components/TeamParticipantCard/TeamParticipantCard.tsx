@@ -23,13 +23,13 @@ export const TeamParticipantCard = ({ user }: any) => {
             // shape="square"
             // style={{ backgroundColor: "white", verticalAlign: "middle" }}
             icon={
-              <UserOutlined />
-            // <img src={user.logo} style={{ objectFit: "contain"}}></img>
+              // <UserOutlined />
+            <img src={user.photo} style={{ objectFit: "contain"}}></img>
           }
           />
           <Typography>
-            <Title level={3}>{user.title}</Title>
-            <Paragraph
+            <Title level={4}>{user.full_name}</Title>
+            {/* <Paragraph
               style={{
                 display: "flex",
                 flexDirection: "row",
@@ -38,7 +38,7 @@ export const TeamParticipantCard = ({ user }: any) => {
               }}
             >
               <Text type="secondary">ФИО</Text>
-            </Paragraph>
+            </Paragraph> */}
           </Typography>
         </div>
     // </Link>

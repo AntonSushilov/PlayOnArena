@@ -27,8 +27,8 @@ const TournamentDetailsPage = (): JSX.Element => {
     (store) => ({
       getTournamentRequest: store.tournamentReducer.getTournamentRequest,
       detailTournament: store.tournamentReducer.detailTournament,
-      teams: store.teamReducer.teams,
-      getTeamsRequest: store.teamReducer.getTeamsRequest,
+      // teams: store.teamReducer.teams,
+      // getTeamsRequest: store.teamReducer.getTeamsRequest,
     }),
     // @ts-ignore
     shallowEqual
@@ -38,7 +38,7 @@ const TournamentDetailsPage = (): JSX.Element => {
   const end_date = new Date(detailTournament?.end_date).toLocaleDateString()
   useEffect(() => {
     dispatch(getDetailTournament(id));
-    dispatch(getTeams());
+    // dispatch(getTeams());
 
     return () => {
       dispatch(clearDetailTournament());
@@ -66,9 +66,9 @@ const TournamentDetailsPage = (): JSX.Element => {
   ];
 
   const contentList: Record<string, React.ReactNode> = {
-    teams: <TournamentTeams teams={teams} />,
-    tournament_grid: <TournamentGrid teams={teams}/>,
-    schedule: <TournamentMatches />,
+    teams: <TournamentTeams teams={detailTournament?.teams} />,
+    tournament_grid: <TournamentGrid teams={detailTournament?.teams} matches={detailTournament?.matches}/>,
+    schedule: <TournamentMatches teams={detailTournament?.teams} matches={detailTournament?.matches}/>,
   };
 
   const onTabChange = (key: string) => {
@@ -98,7 +98,7 @@ const TournamentDetailsPage = (): JSX.Element => {
                       }}
                       icon={
                         <img
-                          src={detailTournament?.photo}
+                          src={detailTournament?.logo}
                           style={{ objectFit: "contain" }}
                         ></img>
                       }
@@ -126,8 +126,8 @@ const TournamentDetailsPage = (): JSX.Element => {
                             justifyContent: "center",
                           }}
                         >
-                          <Text type="secondary">{detailTournament.country}</Text>
-                          <Text type="secondary">{detailTournament.city}</Text>
+                          <Text type="secondary">{detailTournament.country.name_ru}</Text>
+                          <Text type="secondary">{detailTournament.city.name_ru}</Text>
                         </Paragraph>
                         <Paragraph
                           style={{
@@ -138,7 +138,7 @@ const TournamentDetailsPage = (): JSX.Element => {
                           }}
                         >
                           <Text type="secondary">
-                            Вид спорта: {detailTournament.sport_type}
+                            Вид спорта: {detailTournament.sport_type.title}
                           </Text>
                         </Paragraph>
                         <Paragraph
@@ -162,7 +162,7 @@ const TournamentDetailsPage = (): JSX.Element => {
                           }}
                         >
                           <Text type="secondary">
-                            Система расписания: {detailTournament?.schedule_system_type}
+                            Система расписания: {detailTournament?.schedule_system_type.title}
                           </Text>
                         </Paragraph>
                         <Paragraph
@@ -174,7 +174,7 @@ const TournamentDetailsPage = (): JSX.Element => {
                           }}
                         >
                           <Text type="secondary">
-                            Тип турнира: {detailTournament?.tournament_type}
+                            Тип турнира: {detailTournament?.tournament_type.title}
                           </Text>
                         </Paragraph>
                         <Paragraph>{detailTournament.description}</Paragraph>

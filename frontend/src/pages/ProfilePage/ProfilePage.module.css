@@ -37,3 +37,15 @@
   flex-direction: column;
   gap: 20px;
 }
+
+
+.content__tournaments{
+  min-height: 350px;
+  margin: 25px;
+  display: grid;
+  /* flex-direction: row; */
+  gap: 25px;
+  justify-content: space-between;
+  grid-template-columns: repeat(3, 1fr);
+  /* flex-wrap: wrap; */
+}

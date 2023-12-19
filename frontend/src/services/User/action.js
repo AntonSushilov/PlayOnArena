@@ -3,6 +3,9 @@ import {
   SET_USER,
   SET_USER_FAILED,
   SET_AUTH_CHECKED,
+  USER_PROFILE_REQUEST,
+  USER_PROFILE_SUCCESS,
+  USER_PROFILE_FAILED,
   REGISTER_USER_REQUEST,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAILED,
@@ -44,6 +47,39 @@ export function getUser() {
       });
   };
 }
+
+
+//получения данных о пользователе
+export function getUserProfile() {
+  return function (dispatch) {
+    dispatch({
+      type: USER_PROFILE_REQUEST,
+      // isAuthChecked: false,
+    });
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `token ${String(localStorage.getItem("token"))}`,
+      },
+    };
+    return requestApi(`/users/`, requestOptions)
+      .then((res) => {
+        // console.log("getUser SET_USER", res)
+        dispatch({
+          type: USER_PROFILE_SUCCESS,
+          userProfile: res,
+        });
+      })
+      .catch((err) => {
+        dispatch({
+          type: USER_PROFILE_FAILED,
+          // err: err
+        });
+      });
+  };
+}
+
 
 // Регистрация
 export function registerUser(login, password) {

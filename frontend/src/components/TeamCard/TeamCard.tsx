@@ -13,39 +13,45 @@ const { Title, Paragraph, Text } = Typography;
 
 export const TeamCard = ({ team }: any) => {
   const location = useLocation();
-  console.log(team);
+  console.log("teamCARD", team);
   return (
-    <Link to={`/teams/${team.id}`} state={{ background: location }}>
-      <Card
-        // title={team.title}
-        hoverable
-        style={{ width: "100%", height: "100%" }}
-        bordered={true}
-      >
-        <div className={styles.card__content}>
-          <Avatar
-            size={128}
-            shape="square"
-            style={{ backgroundColor: "white", verticalAlign: "middle" }}
-            icon={<img src={team.logo} style={{ objectFit: "contain"}}></img>}
-          />
-          <Typography>
-            <Title level={3}>{team.title}</Title>
-            <Paragraph
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                gap: 12,
-                justifyContent: "center",
-              }}
-            >
-              <Text type="secondary">Москва</Text>
-              <Text type="secondary">Россия</Text>
-            </Paragraph>
-          </Typography>
-        </div>
-      </Card>
-    </Link>
+    <>
+      {team && (
+        <Link to={`/teams/${team.id}`} state={{ background: location }}>
+          <Card
+            // title={team.title}
+            hoverable
+            style={{ width: "100%", height: "100%" }}
+            bordered={true}
+          >
+            <div className={styles.card__content}>
+              <Avatar
+                size={128}
+                shape="square"
+                style={{ backgroundColor: "white", verticalAlign: "middle" }}
+                icon={
+                  <img src={team.logo} style={{ objectFit: "contain" }}></img>
+                }
+              />
+              <Typography>
+                <Title level={3}>{team.title}</Title>
+                <Paragraph
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    gap: 12,
+                    justifyContent: "center",
+                  }}
+                >
+                  <Text type="secondary">{team?.city?.name_ru}</Text>
+                  <Text type="secondary">{team?.country?.name_ru}</Text>
+                </Paragraph>
+              </Typography>
+            </div>
+          </Card>
+        </Link>
+      )}
+    </>
   );
 };
 

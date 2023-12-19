@@ -11,7 +11,8 @@
     "organizer": 1,
     "schedule_system_type": 1,
     "sport_type": 1,
-    "tournament_type": 1
+    "tournament_type": 1,
+    "teams": [1,2,3,4]
   },
   {
     "title": "Spanish Primera División",
@@ -19,13 +20,14 @@
     "logo": "images\/tournaments\/16237961903mqRd.png",
     "start_date": "2022-01-01",
     "end_date": "2023-01-01",
-    "count_teams": 4,
+    "count_teams": 8,
     "city": 2,
     "country": 9,
     "organizer": 2,
     "schedule_system_type": 2,
     "sport_type": 1,
-    "tournament_type": 2
+    "tournament_type": 2,
+    "teams": [1,2,3,4,5,6,7,8]
   },
   {
     "title": "Italian Serie C - Lombardy B",
@@ -39,7 +41,8 @@
     "organizer": 1,
     "schedule_system_type": 3,
     "sport_type": 1,
-    "tournament_type": 1
+    "tournament_type": 1,
+    "teams": [5,6,7,8]
   },
   {
     "title": "Championnats ASEUS",
@@ -53,7 +56,8 @@
     "organizer": 2,
     "schedule_system_type": 1,
     "sport_type": 1,
-    "tournament_type": 2
+    "tournament_type": 2,
+    "teams": [1,2,3,4,5,6,7,8]
   },
   {
     "title": "Kosovo Superliga",
@@ -67,7 +71,8 @@
     "organizer": 1,
     "schedule_system_type": 2,
     "sport_type": 1,
-    "tournament_type": 1
+    "tournament_type": 1,
+    "teams": []
   },
   {
     "title": "NEC Conference",
@@ -81,7 +86,8 @@
     "organizer": 2,
     "schedule_system_type": 3,
     "sport_type": 1,
-    "tournament_type": 2
+    "tournament_type": 2,
+    "teams": []
   },
   {
     "title": "South American Club Championship",
@@ -95,7 +101,8 @@
     "organizer": 1,
     "schedule_system_type": 1,
     "sport_type": 1,
-    "tournament_type": 1
+    "tournament_type": 1,
+    "teams": []
   },
   {
     "title": "Indonesian Proliga",
@@ -109,6 +116,7 @@
     "organizer": 2,
     "schedule_system_type": 2,
     "sport_type": 1,
-    "tournament_type": 2
+    "tournament_type": 2,
+    "teams": []
   }
 ]

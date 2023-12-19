@@ -86,6 +86,13 @@ class ShortScheduleSystemTypeSerializer(serializers.ModelSerializer):
         model = models.ScheduleSystemType
         fields = ('id', 'title')
 
+class ParticipantSerializer(serializers.ModelSerializer):
+    # photo = Base64ImageField()
+    # team = TeamSerializer
+
+    class Meta:
+        model = models.Participant
+        fields = '__all__'
 
 class TeamSerializer(serializers.ModelSerializer):
     logo = Base64ImageField()
@@ -93,6 +100,8 @@ class TeamSerializer(serializers.ModelSerializer):
     country = ShortCountrySerializer(read_only=True)
     city = ShortCitySerializer(read_only=True)
     sport_type = ShortSportTypeSerializer(read_only=True)
+    participants = ParticipantSerializer(read_only=True, many=True)
+    # tournaments = TournamentListSerializer(read_only=True, many=True)
 
     class Meta:
         model = models.Team
@@ -159,7 +168,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'photo', 'created_teams', 'tournaments')
+        fields = ('id', 'username','first_name','last_name','middle_name','bio','email','photo', 'created_teams', 'tournaments')
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
@@ -177,34 +186,31 @@ class CustomUserSerializer(serializers.ModelSerializer):
     #     return models.Tournament.objects.filter(teams=models.Team.objects.filter(creator=user))
 
 
+
+
+
+
+
+
+class MatchSerializer(serializers.ModelSerializer):
+    owner = CustomUserSerializer
+    guest = CustomUserSerializer
+    # tournament = TournamentSerializer
+
+    class Meta:
+        model = models.Match
+        fields = '__all__'
+
+
 class TournamentSerializer(serializers.ModelSerializer):
     teams = TeamListSerializer(many=True)
+    matches = MatchSerializer(many=True)
     country = ShortCountrySerializer(read_only=True)
     city = ShortCitySerializer(read_only=True)
     sport_type = ShortSportTypeSerializer(read_only=True)
     tournament_type = ShortTournamentTypeSerializer(read_only=True)
     schedule_system_type = ShortScheduleSystemTypeSerializer(read_only=True)
     organizer = ShortUserSerializer(read_only=True)
-
     class Meta:
         model = models.Tournament
-        fields = '__all__'
-
-
-class ParticipantSerializer(serializers.ModelSerializer):
-    photo = Base64ImageField()
-    team = TeamSerializer
-
-    class Meta:
-        model = models.Participant
-        fields = '__all__'
-
-
-class MatchSerializer(serializers.ModelSerializer):
-    owner = CustomUserSerializer
-    guest = CustomUserSerializer
-    tournament = TournamentSerializer
-
-    class Meta:
-        model = models.Match
         fields = '__all__'

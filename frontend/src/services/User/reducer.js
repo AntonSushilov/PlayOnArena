@@ -1,6 +1,9 @@
 import {
   SET_USER,
   SET_AUTH_CHECKED,
+  USER_PROFILE_REQUEST,
+  USER_PROFILE_SUCCESS,
+  USER_PROFILE_FAILED,
   REGISTER_USER_REQUEST,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAILED,
@@ -17,6 +20,11 @@ export const initialState = {
   token: null,
   user: null,
   isAuthChecked: false,
+
+  userProfile: null,
+  userProfileRequest: false,
+  userProfileSuccess: false,
+  userProfileFailed: false,
 
   message: null,
   userRequest: false,
@@ -41,6 +49,29 @@ export const userReducer = (
       return {
         ...state,
         isAuthChecked: action.isAuthChecked,
+      };
+    }
+    case USER_PROFILE_REQUEST: {
+      return {
+        ...state,
+        userProfileRequest: true,
+        userProfileSuccess: false,
+      };
+    }
+    case USER_PROFILE_SUCCESS: {
+      return {
+        ...state,
+        userProfileRequest: false,
+        userProfileSuccess: true,
+        userProfileFailed: false,
+        userProfile: action.userProfile
+      };
+    }
+    case USER_PROFILE_FAILED: {
+      return {
+        ...state,
+        userProfileFailed: true,
+        userProfileRequest: false,
       };
     }
     case REGISTER_USER_REQUEST: {

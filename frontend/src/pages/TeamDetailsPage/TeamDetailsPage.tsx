@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, FormEvent, useEffect, useMemo, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { Spin, Avatar, Card, Typography, Form, Button } from "antd";
@@ -26,7 +26,7 @@ const TeamDetailsPage = (): JSX.Element => {
     // @ts-ignore
     shallowEqual
   );
-  console.log(detailTeam);
+  console.log("detailTeam",detailTeam);
   useEffect(() => {
     dispatch(getDetailTeam(id));
     return () => {
@@ -55,7 +55,7 @@ const TeamDetailsPage = (): JSX.Element => {
   ];
 
   const contentList: Record<string, React.ReactNode> = {
-    composition: <TeamParticipants participants={[]} />,
+    composition: <TeamParticipants participants={detailTeam?.participants} />,
     tournaments: <p>В разработке</p>,
     matches: <p>В разработке</p>,
   };
@@ -103,8 +103,8 @@ const TeamDetailsPage = (): JSX.Element => {
                             justifyContent: "center",
                           }}
                         >
-                          <Text type="secondary">{detailTeam.country}</Text>
-                          <Text type="secondary">{detailTeam.city}</Text>
+                          <Text type="secondary">{detailTeam.country.name_ru}</Text>
+                          <Text type="secondary">{detailTeam.city.name_ru}</Text>
                         </Paragraph>
                         <Paragraph
                           style={{
@@ -115,7 +115,7 @@ const TeamDetailsPage = (): JSX.Element => {
                           }}
                         >
                           <Text type="secondary">
-                            Вид спорта: {detailTeam.sport_type}
+                            Вид спорта: {detailTeam.sport_type.title}
                           </Text>
                         </Paragraph>
                         <Paragraph

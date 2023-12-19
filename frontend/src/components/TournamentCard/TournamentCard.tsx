@@ -29,10 +29,10 @@ export const TournamentCard = ({ tournament }: any) => {
             size={128}
             shape="square"
             style={{ backgroundColor: "white", verticalAlign: "middle" }}
-            icon={<img src="media\images\tournaments\1593010589xlZ59.png" style={{ objectFit: "contain"}}></img>}
+            icon={<img src={tournament.logo} style={{ objectFit: "contain"}}></img>}
           />
           <Typography>
-            <Title level={3}>{tournament?.title}</Title>
+            <Title level={3}>{tournament.title}</Title>
             <Paragraph
               style={{
                 display: "flex",
