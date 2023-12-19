@@ -37,15 +37,18 @@ const TournamentsPage = (): JSX.Element => {
     [tournaments]
   );
 
-  const nearest_tournaments: [] = useMemo(
-    () => tournaments?.filter((el: any) => nowDate <= new Date(el.start_date)),
-    [tournaments]
-  );
+  // const nearest_tournaments: [] = useMemo(
+  //   () => tournaments?.filter((el: any) => nowDate <= new Date(el.start_date)),
+  //   [tournaments]
+  // );
 
-  const сompleted_tournaments: [] = useMemo(
-    () => tournaments?.filter((el: any) => nowDate >= new Date(el.end_date)),
-    [tournaments]
-  );
+  // const сompleted_tournaments: [] = useMemo(
+  //   () => tournaments?.filter((el: any) => nowDate >= new Date(el.end_date)),
+  //   [tournaments]
+  // );
+  // const сurrent_tournaments: any = []
+  const nearest_tournaments: any = []
+  const сompleted_tournaments: any = []
   console.log("сurrent_tournaments", сurrent_tournaments);
   console.log("nearest_tournaments", nearest_tournaments);
   console.log("сompleted_tournaments", сompleted_tournaments);
